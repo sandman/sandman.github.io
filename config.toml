@@ -1,7 +1,7 @@
-base_url = "https://welpo.github.io/tabi"
+base_url = "https://sandip.live"
 title = "~/sandip"
-description = "tabi is a fast, lightweight, and modern Zola theme with multi-language support, optional JavaScript, and a perfect Lighthouse score."
-author = "sandip"
+description = "Sandip Gangakhedkar | Entrepreneur | Technical leader | Innovator"
+author = "Sandip Gangakhedkar"
 generate_feed = true
 compile_sass = true
 minify_html = true
