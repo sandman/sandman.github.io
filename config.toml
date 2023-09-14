@@ -136,7 +136,7 @@ headerImage = ""
 menu = [
     { name = "blog", url = "blog/" },
     { name = "archive", url = "archive/" },
-    { name = "tags", url = "tags/" },
+    # { name = "tags", url = "tags/" },
     { name = "projects", url = "projects/" },
     # { name = "about", url = "about/" },
 ]
