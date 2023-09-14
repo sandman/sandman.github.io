@@ -1,14 +1,14 @@
 +++
 title = "Building a deep-tech startup on a shoestring budget"
 date = 2023-08-26
-updated = 2023-08-27
+updated = 2023-09-14
 description = "It is 2023, venture funding is the lowest in a decade, amidst the global economic slowdown. Against this backdrop,  what does it take to build a deep-tech startup with severely limited resources? "
 
 [taxonomies]
-tags = ["startups", "reflections"]
+tags = ["startups", "reflections", "founder insights", "playbook"]
 +++
 
-Startups are hard. Deep-tech startups are harder. There is an added element of technical risk along with market, regulatory and financial risks. The time to market is several years making it crucial to balance customer and product development with the technology development. Deep-tech startups by their very nature have a technological moat in the early stages. This means fewer competitors, but it also means a nascent market.  Note that what is deep-tech today may not be so in the future as the technology matures.
+Startups are hard. [Deep-tech](https://en.wikipedia.org/wiki/Deep_tech#:~:text=Deep%20technology%20(also%20deep%20tech,substantial%20scientific%20or%20engineering%20challenges.)) startups are harder. There is an added element of technical risk along with market, regulatory and financial risks. The time to market is several years making it crucial to balance customer and product development with the technology development. **Note that what is deep-tech today may not be so in the future as the technology matures.**
 
 > A moat is your startup's defensibility — i.e., your business's ability to maintain a competitive advantage to protect long-term market share and, therefore, make more profits.
 
@@ -33,7 +33,10 @@ The first step is the birth of the idea itself. These are typically developed in
 
 ## Step 2: Map out the market opportunities
 
-If the commercial application is not immediately clear, spend some time doing[ customer discovery](https://www.momtestbook.com/) to understand the market for the various applications of the technology. This is a very tricky phase since the market for deep-tech doesn't exist yet or is in the nascent stages. Customer interest is muddled since there is no product out there for them to test. This topic warrants an entire post (or series of posts) but the key here is to understand which customer(s) have a *hair on fire* problem. As Michael Siebel [puts it](https://www.ycombinator.com/blog/the-real-product-market-fit/), if your friend was standing next to you and their hair was on fire, that fire would be the only thing they really cared about in this world. In other words, the customer is desperate for a solution to this problem and will trial a half-baked proof-of-concept (PoC) if available.
+If the commercial application is not immediately clear, spend some time doing [customer discovery](https://www.momtestbook.com/) to understand the market for the various applications of the technology. This is a very tricky phase since the market for deep-tech doesn’t exist yet or is in the nascent stages. Customer interest is muddled since there is no product out there for them to test. A classic chicken-and-egg problem. The key here is to understand which customer(s) have a *hair on fire* problem. As Michael Siebel [puts it](https://www.ycombinator.com/blog/the-real-product-market-fit/), if your friend was standing next to you and their hair was on fire, that fire would be the only thing they really cared about in this world. **In other words, the customer is desperate for a solution to this problem and will trial a half-baked proof-of-concept (PoC) if available.**
+
+
+![Hair on Fire problem](/public/img/hair-fire.jpg "Find customers with a burning problem")*Your customer with a hair on fire problem*
 
 How exactly do you know if the problem is a hair-on-fire problem? Some proxy signals:
 
