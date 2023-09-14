@@ -58,6 +58,8 @@ Each market or market segment will likely have different technical and product r
 Map out the market segments based on the ease of their Go to Market (GTM) and the complexity of building the MVP as shown below:
 
 ![Ease of Commercialisation vs MVP complexity](/img/ease-complexity.png "Ease of Commercialisation vs MVP complexity")*Pick markets where you can quickly build and commercialise an MVP*
+
+
 We want to stay in the bottom right quadrant where the product complexity is low, the GTM ease is high and the market size (denoted by the size of the circles) is reasonably large. In the figure, B seems like the best market segment to go after. D could also be promising. A will need a lot more time to build the MVP and C will be difficult to commercialise.
 
 In reality, which market to address first will not always be crystal clear and will need some smart prototyping, industry knowledge and the ability to pivot quickly.
