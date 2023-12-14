@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="feed_style.xsl" type="text/xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Notes from the trenches - founder insights</title>
+        <subtitle>Sandip Gangakhedkar | Entrepreneur | Technical leader | Innovator</subtitle>
+    <link href="https://sandip.live/tags/founder-insights/atom.xml" rel="self" type="application/atom+xml"/>
+    <link href="https://sandip.live"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2023-09-14T00:00:00+00:00</updated>
+    <id>https://sandip.live/tags/founder-insights/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Building a deep-tech startup on a shoestring budget</title>
+        <published>2023-08-26T00:00:00+00:00</published>
+        <updated>2023-09-14T00:00:00+00:00</updated>
+        <author>
+            <name>Sandip Gangakhedkar</name>
+        </author>
+        <link rel="alternate" href="https://sandip.live/blog/deeptech-budget/" type="text/html"/>
+        <id>https://sandip.live/blog/deeptech-budget/</id>
+        <summary type="html">It is 2023, venture funding is the lowest in a decade, amidst the global economic slowdown. Against this backdrop,  what does it take to build a deep-tech startup with severely limited resources? </summary>
+        </entry>
+</feed>
