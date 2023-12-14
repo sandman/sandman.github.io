@@ -5,9 +5,10 @@ sort_by = "date"
 template = "section.html"
 
 [extra]
-header = {title = "Hello! I'm Sandip", img = "$BASE_URL/img/sandip_profile.webp" }
+header = {title = "Hello! I'm Sandip", img = "$BASE_URL/img/sandip_profile.webp", img_alt = "Sandip, the Blog's author" }
 section_path = "blog/_index.md"
 max_posts = 4
+social_media_card = "social_cards/index.jpg"
 +++
 I am a technologist and engineer drawn to building products that positively impact our lives and the planet.
 

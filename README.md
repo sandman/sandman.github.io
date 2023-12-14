@@ -1,8 +1,10 @@
 # tabi
 
-A fast, lightweight, and modern [Zola](https://getzola.org) theme with multi-language support. It aims to be a personal page and home to blog posts.
+A fast, lightweight, and modern [Zola](https://www.getzola.org) theme with multi-language support. It aims to be a personal page and home to blog posts.
 
-See a live preview [here](https://welpo.github.io/tabi).
+See a live preview (and the theme's documentation) [here](https://welpo.github.io/tabi).
+
+Explore the [Sites Using tabi section](#sites-using-tabi) to see real-world applications.
 
 > tabi (旅): Journey.
 
@@ -14,20 +16,34 @@ tabi has a perfect score on Google's Lighthouse audit:
 
 ## Features
 
-- [X] Multi-language support.
+- [X] [Set any language as default](https://welpo.github.io/tabi/blog/faq-languages/#how-do-i-set-a-default-language-for-my-site). Set your base site to Chinese, Spanish, French, Hindi… or any [other supported language](/i18n). The theme's interface will be translated accordingly.
+- [X] [Integration with remote repositories](https://welpo.github.io/tabi/mastering-tabi-settings/#git-repository-integration) on GitHub, GitLab, Gitea & Codeberg for commit history and showing the site source.
 - [X] Dark and light themes. Defaults to the OS setting, with a switcher in the navigation bar.
+- [X] Thorough documentation. See [Mastering tabi Settings: A Comprehensive Guide](https://welpo.github.io/tabi/blog/mastering-tabi-settings/).
 - [X] Perfect Lighthouse score (Performance, Accessibility, Best Practices and SEO).
-- [X] [KaTeX](https://katex.org/) support.
-- [X] All JavaScript (theme switcher and KaTeX) can be fully disabled.
-- [X] Stylized [feed](https://welpo.github.io/tabi/atom.xml).
-- [X] Responsive design.
-- [X] Projects page.
-- [X] Archive page.
-- [x] Tags.
-- [x] Social links.
-- [X] Code syntax highlighting.
+- [X] [Comprehensive multi-language support](https://welpo.github.io/tabi/blog/faq-languages/#how-does-tabi-handle-multilingual-support). Add as many languages as you wish.
+- [X] Support for [comments using giscus, utterances, Hyvor Talk, or Isso](https://welpo.github.io/tabi/blog/comments/).
+- [X] Code syntax highlighting with colours based on [Catppuccin](https://github.com/catppuccin/catppuccin) Frappé.
+- [X] [KaTeX](https://katex.org/) support for mathematical notation.
+- [X] [Stylized and human readable Atom feed](https://welpo.github.io/tabi/atom.xml).
+- [X] [Stylized and human readable sitemap](https://welpo.github.io/tabi/sitemap.xml).
+- [X] [Mail encoding](https://welpo.github.io/tabi/blog/mastering-tabi-settings/#encoded-email) for spam protection.
+- [X] All JavaScript can be [fully disabled](https://welpo.github.io/tabi/blog/javascript/).
+- [X] [Customizable Table of Contents](https://welpo.github.io/tabi/blog/toc/).
+- [X] [Customizable secure headers](https://welpo.github.io/tabi/blog/security/).
+- [X] [Copy button for code blocks](https://welpo.github.io/tabi/blog/mastering-tabi-settings/#copy-button-on-code-blocks).
+- [X] [Quick navigation buttons](https://welpo.github.io/tabi/blog/mastering-tabi-settings/#quick-navigation-buttons).
+- [X] [Custom copyright notice](https://welpo.github.io/tabi/blog/mastering-tabi-settings/#copyright).
+- [X] [Custom canonical URLs](https://welpo.github.io/tabi/blog/mastering-tabi-settings/#canonical-url).
+- [X] [Customizable skins](https://welpo.github.io/tabi/blog/customise-tabi/).
 - [X] [Custom shortcodes](https://welpo.github.io/tabi/blog/shortcodes/).
-- [X] Customizable secure headers.
+- [X] [Footnote backlinks](https://welpo.github.io/tabi/blog/mastering-tabi-settings/#footnote-backlinks).
+- [X] [Social media cards](https://welpo.github.io/tabi/blog/mastering-tabi-settings/#social-media-cards).
+- [X] Responsive design.
+- [X] [Projects page](https://welpo.github.io/tabi/projects/).
+- [X] [Archive page](https://welpo.github.io/tabi/archive/).
+- [X] [Social links](https://welpo.github.io/tabi/blog/mastering-tabi-settings/#social-media-icons).
+- [X] [Tags](https://welpo.github.io/tabi/blog/mastering-tabi-settings/#tags).
 
 ## Quick start
 
@@ -39,7 +55,7 @@ cd tabi
 zola serve
 ```
 
-Open http://127.0.0.1:1111/ in the browser.
+Open http://127.0.0.1:1111 in the browser.
 
 ## Installation
 
@@ -98,24 +114,39 @@ section_path = "blog/_index.md"
 
 ```
 [extra]
-header = {title = "Hello! I'm tabi~", img = "$BASE_URL/img/main.webp" }
+header = {title = "Hello! I'm tabi~", img = "img/main.webp", img_alt = "Your Name" }
 ```
 
 The content outside the front matter will be rendered between the header title and the posts listing. In the screenshot above, it's the text that reads "tabi is a fast, lightweight, and modern Zola theme…".
 
-6. If you want a multilingual site, you will need to set up each language. In `config.toml`:
+6. If you want a multilingual site, you will need to set up each language. In `config.toml`, set the title and taxonomies for each language, like:
 
-- set the translations for a few strings;
-- set the title and taxonomies for each language;
-- add the `language_name.{code}` in `[extra]`. This is the text shown in the language switcher.
-
-See [these lines in the provided `config.toml`](https://github.com/welpo/tabi/blob/dd73e527298c1c4357e48589314bfd9302323c27/config.toml#L19-L105) for an example.
+```toml
+[languages.es]
+title = "~/tabi"
+taxonomies = [{name = "tags", feed = true}]
+```
 
 You will need an `_index.{language_code}.md` per language for each section (e.g. /blog or /projects) that you want to enable in that language.
 
 The same is true for individual posts, which should have the exact same name as the default language, with an extra `.{code}` before the extension (e.g. the Spanish version of `security.md` would be `security.es.md`).
 
 This configuration allows the language switcher to take the user to the translation of the current URL. If a translation doesn't exist, the 404 page will be displayed, with an explanation in each language set in the config.
+
+To learn more about multilingual support, see the [Frequently Asked Questions](https://welpo.github.io/tabi/blog/faq-languages/).
+
+## Sites Using tabi
+
+| Website | Creator | Description  | Site Source   |
+| - | - | - | - |
+| [osc.garden](https://osc.garden) | Óscar Fernández ([welpo](https://github.com/welpo)) | Data science, psychology, and Zola | [Source](https://github.com/welpo/osc.garden) |
+| [sandip.live](https://sandip.live) | Sandip G ([sandman](https://github.com/sandman)) | Startups, tech and the good life | [Source](https://github.com/sandman/sandman.github.io) |
+| [seadve.github.io](https://seadve.github.io/) | Dave Patrick Caberto ([SeaDve](https://github.com/SeaDve/)) | Personal blog and portfolio with custom CSS | [Source](https://github.com/SeaDve/seadve.github.io) |
+| [donovan.is](https://donovan.is) | [Donovan Glover](https://github.com/donovanglover) | Linux, Rust, and Full Stack Web Development | [Source](https://github.com/donovanglover/donovan.is) |
+| [mikufan.page](https://mikufan.page) | [Nadia](https://github.com/nyadiia) | Personal blog | [Source](https://github.com/nyadiia/mikufan.page) |
+| [tim-boettcher.online](https://tim-boettcher.online/) | [Tim Böttcher](https://codeberg.org/Tim-Boettcher/) | Insights and ramblings of a deafblind programmer | [Source](https://codeberg.org/Tim-Boettcher/tim-boettcher-online/) |
+
+Using tabi? Feel free to create a PR and add your site to this list.
 
 ## Inspiration
 
@@ -127,7 +158,9 @@ This theme was inspired by:
 
 ## Contributing
 
-Please do! Take a look at the [Contributing Guidelines](/CONTRIBUTING.md) to learn more.
+Please do! We appreciate bug reports, improvements to translations or documentation (however minor), feature requests…
+
+Take a look at the [Contributing Guidelines](/CONTRIBUTING.md) to learn more.
 
 ## License
 

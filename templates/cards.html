@@ -8,16 +8,20 @@
     {{ macros_page_header::page_header(title=section.title) }}
 
     <main>
+        {% if section.content -%}
+            <div id="page-content">{{ section.content | safe }}</div>
+        {% endif %}
+
         {%- if paginator %}
             {%- set show_pages = paginator.pages -%}
         {% else %}
             {%- set show_pages = section.pages -%}
         {% endif -%}
 
-        {{ macros_cards_pages::cards_pages(pages=show_pages) }}
+    {%- include "partials/cards_pages.html" -%}
     </main>
 
     {% if paginator %}
-        {{ macros_paginate::paginate() }}
+        {%- include "partials/paginate.html" -%}
     {% endif %}
 {% endblock main_content %}
