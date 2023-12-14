@@ -28,7 +28,7 @@ theme_switcher = true
 
 # This setting determines the default theme on load ("light" or "dark").
 # To default to the user's OS-level theme, leave it empty or unset.
-default_theme = ""
+default_theme = "light"
 
 # Choose the colourscheme (skin) for the theme. Default is "teal".
 # Skin available: blue, lavender, mint, red, sakura, teal, monochrome, lowcontrast_orange, lowcontrast_peach, lowcontrast_pink, indigo_ingot, evangelion
@@ -63,14 +63,14 @@ stylesheets = []
 # remote_repository_url = "https://github.com/welpo/tabi"
 # Set this to "auto" to try and auto-detect the platform based on the repository URL.
 # Accepted values are "github", "gitlab", "gitea", and "codeberg".
-remote_repository_git_platform = "auto"  # Defaults to "auto".
+remote_repository_git_platform = "auto" # Defaults to "auto".
 # Branch in the repo hosting the Zola site.
-remote_repository_branch = "main"  # Defaults to "main".
+remote_repository_branch = "main" # Defaults to "main".
 # Show a link to the commit history of updated posts, right next to the last updated date.
 # Can be set at page or section levels, following the hierarchy: page > section > config. See: https://welpo.github.io/tabi/blog/mastering-tabi-settings/#settings-hierarchy
-show_remote_changes = true  # Defaults to true.
+show_remote_changes = true # Defaults to true.
 # Show a link to the repository of the site, right next to the "Powered by Zola & tabi" text.
-show_remote_source = true  # Defaults to true.
+show_remote_source = true # Defaults to true.
 
 # Add a "copy" button to codeblocks (loads ~700 bytes of JavaScript).
 # Can be set at page or section levels, following the hierarchy: page > section > config. See: https://welpo.github.io/tabi/blog/mastering-tabi-settings/#settings-hierarchy
@@ -145,7 +145,7 @@ full_content_in_feed = false
 # 2. Or, set 'encode_plaintext_email' to true for auto-encoding (only protects on site, not in public repos).
 # email = "bWFpbEBleGFtcGxlLmNvbQ=="  # base64 encoded version of "mail@example.com"
 # Decoding requires ~400 bytes of JavaScript. If JS is disabled, the email won't be displayed.
-encode_plaintext_email = true  # Setting is ignored if email is already encoded.
+encode_plaintext_email = true # Setting is ignored if email is already encoded.
 
 # The icons available can be found in "social_icons" in the "static" folder.
 # socials = [
@@ -184,11 +184,25 @@ encode_plaintext_email = true  # Setting is ignored if email is already encoded.
 # Default config, allows for https remote images and embedding YouTube and Vimeo content.
 # This configuration (along with the right webserver settings) gets an A+ in Mozilla's Observatory: https://observatory.mozilla.org
 allowed_domains = [
-    { directive = "font-src", domains = ["'self'", "data:"] },
-    { directive = "img-src", domains = ["'self'", "https://*", "data:"] },
-    { directive = "script-src", domains = ["'self'"] },
-    { directive = "style-src", domains = ["'self'"] },
-    { directive = "frame-src", domains = ["player.vimeo.com", "https://www.youtube-nocookie.com"] },
+    { directive = "font-src", domains = [
+        "'self'",
+        "data:",
+    ] },
+    { directive = "img-src", domains = [
+        "'self'",
+        "https://*",
+        "data:",
+    ] },
+    { directive = "script-src", domains = [
+        "'self'",
+    ] },
+    { directive = "style-src", domains = [
+        "'self'",
+    ] },
+    { directive = "frame-src", domains = [
+        "player.vimeo.com",
+        "https://www.youtube-nocookie.com",
+    ] },
 ]
 
 # Custom subset of characters for the header.
