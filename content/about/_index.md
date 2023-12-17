@@ -8,6 +8,7 @@ template = "section_single.html"
 header = {title = "Hello! I'm Sandip", img = "$BASE_URL/img/sandip_profile.webp" }
 section_path = "blog/_index.md"
 max_posts = 0
+social_media_card = "social_cards/index.jpg"
 +++
 I am a technologist and engineer drawn to building products that positively impact our lives and the planet.
 
