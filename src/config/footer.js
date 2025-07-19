@@ -44,11 +44,11 @@ export const footerLists = [
 		items: [
 			{
 				title: 'About Sandip',
-				slug: '/company/about',
+				slug: '/about',
 			},
 			{
 				title: 'Contact',
-				slug: '/company/contact',
+				slug: '/contact',
 			},
 		],
 	},
