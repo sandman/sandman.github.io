@@ -1,0 +1,74 @@
+---
+import { FeatureCard } from '@components/odyssey-theme';
+import Layout from '../layouts/Page.astro';
+import HeroSection from '../components/sections/heros/HeroSection.astro';
+import Container from '../components/core/Container.astro';
+
+const seo = {
+	title: 'Projects | Sandip Gangakhedkar',
+	description: 'Projects and work by Sandip Gangakhedkar',
+};
+---
+
+<Layout {seo}>
+	<HeroSection>
+		<div slot="text-container">
+			<h1>Projects</h1>
+			<p>
+				A collection of projects I've worked on, ranging from research tools to commercial applications.
+			</p>
+		</div>
+	</HeroSection>
+  
+  <Container>
+    <section class="feature-card__section">
+      <h2>Current Projects</h2>
+      <div class="feature-card__grid">
+        <FeatureCard 
+          title="eric" 
+          imgSrc="/assets/images/eric.png"
+          imgAlt="Eric - Intelligent PDF Assistant"
+        >
+          <p>An intelligent assistant that answers questions based on uploaded PDF documents. Built with modern AI technologies to help users extract insights from documents quickly and efficiently.</p>
+          <a href="https://github.com/sandman/eric" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View on GitHub</a>
+        </FeatureCard>
+      </div>
+      
+      <div style="margin-top: 2rem;">
+        <p><em>More projects coming soon...</em></p>
+      </div>
+    </section>
+  </Container>
+</Layout>
+
+<style>
+  .feature-card__section {
+    padding: 2rem 0;
+  }
+  
+  .feature-card__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    margin-top: 1rem;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-primary {
+    background-color: var(--theme-primary);
+    color: white;
+  }
+  
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+</style>

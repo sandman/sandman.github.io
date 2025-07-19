@@ -1,0 +1,51 @@
+---
+import { getCollection } from 'astro:content';
+import {
+	Container,
+	TextCardSection,
+	BlogPostsList,
+} from '@components/odyssey-theme';
+import Layout from '../../layouts/Page.astro';
+
+const blogPosts = await getCollection('blog', ({ data }) => {
+	return !data.draft;
+});
+
+const posts = blogPosts
+	.map((post) => ({
+		title: post.data.title,
+		description: post.data.description,
+		publishDate: post.data.publishDate,
+		featuredImage: post.data.featuredImage,
+		excerpt: post.data.excerpt,
+		href: `/blog/posts/${post.slug}`,
+		tags: post.data.tags,
+	}))
+	.sort((a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime());
+
+const seo = {
+	title: 'Blog | Notes from the trenches',
+	description: 'Thoughts on startups, technology, and product development',
+};
+---
+
+<Layout {seo}>
+	<Container>
+		<TextCardSection>
+			<h1>Notes from the trenches</h1>
+			<p>
+				Thoughts and insights on startups, technology, product development, and the journey of building things that matter.
+			</p>
+		</TextCardSection>
+		<section class="blog-posts-list__section">
+			<h2>Recent Posts</h2>
+			<BlogPostsList posts={posts} />
+		</section>
+	</Container>
+</Layout>
+
+<style>
+	.blog-posts-list__section {
+		margin: var(--section-margin) auto;
+	}
+</style>
