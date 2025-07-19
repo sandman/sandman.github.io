@@ -13,14 +13,11 @@ import {ThemeSwitcher} from '../../theme-switcher/theme-switcher';
 					The technology landscape today is vast, complex and chaotic. I help businesses succeed by cutting through the noise and focusing on what really matters. 
 				</p>
 				<div class="hero-btns__container">
-					<Button href="/contact" customIcon
-						>Contact
-            <Fragment slot="icon">
-              <Icon name="ic:baseline-chevron-right"/>
-            </Fragment>
-            </Button
-					>
-					<Button href="/theme/style-guide" unelevated>Style Guide</Button>
+					<Button href="/contact" customIcon>Contact
+					<Fragment slot="icon">
+					<Icon name="ic:baseline-chevron-right"/>
+					</Fragment>
+					</Button>
 				</div>
         {settings.enableThemeSwitcher && <ThemeSwitcher client:only/>}
 		</div>
