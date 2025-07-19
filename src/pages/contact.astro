@@ -1,0 +1,69 @@
+---
+import Layout from '../layouts/Page.astro';
+import { Container, Button, FormInput, FormTextarea } from '@components/odyssey-theme';
+
+const seo = {
+	title: 'Contact Sandip | Fractional Technology & Product Leader',
+	description: 'Contact Page to reach out to Sandip Gangakhedkar and discuss opportunities, collaborations, or inquiries.',
+};
+---
+
+<Layout seo={seo}>
+	<Container>
+		<section class="contact-hero__section">
+			<div class="contact-hero__text-section">
+				<h1>Get in touch</h1>
+				<p>
+					Feel free to reach out for any inquiries, collaborations, or just to say hello! 
+					I'm always open to connecting with interesting people and exploring new opportunities.
+				</p>
+			</div>
+			<div class="col-2__container">
+				<form action="https://formspree.io/sandip.gangakhedkar@gmail.com" method="POST" class="contact-form">
+					<input type="hidden" name="_next" value="https://sandip.live/contact-thank-you">
+					<input type="hidden" name="_subject" value="New contact form message">
+					<FormInput type="text" label="Name" name="name" placeholder="Your Name" required />
+					<FormInput type="email" label="Email" name="email" placeholder="your@email.com" required />
+					<FormTextarea label="Message" name="message" placeholder="Your message here..." required />
+					<Button type="submit">Send Message</Button>
+				</form>
+			</div>
+		</section>
+	</Container>
+</Layout>
+
+<style>
+	.contact-hero__section {
+		margin: var(--section-margin) auto;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		min-height: calc(90vh - var(--navbar-height));
+		gap: 3rem;
+	}
+	.contact-hero__text-section {
+		padding: 2rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		background-color: var(--theme-surface-1);
+		border-radius: var(--theme-shape-radius);
+	}
+	.col-2__container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+	.contact-form {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 1rem;
+		padding: 2rem;
+		background-color: var(--theme-surface-1);
+		border-radius: var(--theme-shape-radius);
+	}
+	@media (max-width: 768px) {
+		.contact-hero__section {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>
