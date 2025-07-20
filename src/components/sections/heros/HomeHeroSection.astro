@@ -1,6 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
-import { Container, Button } from '@components/odyssey-theme';
+import { Container, Button, StickyTextImageSection, CtaCardSection } from '@components/odyssey-theme';
 import settings from '../../../config/settings.js';
 import {ThemeSwitcher} from '../../theme-switcher/theme-switcher';
 ---
@@ -32,6 +32,45 @@ import {ThemeSwitcher} from '../../theme-switcher/theme-switcher';
 		</div>
 	</section>
 </Container>
+
+	<StickyTextImageSection>
+		<div slot="text-container">
+			<h2>How I help</h2>
+			<p>
+				I partner with early-stage and growth companies as a hands-on fractional Chief Technology & Product Officer to:
+			</p>
+			<h3>Align product and tech with business strategy</h3>
+			<p>I help you define what matters, build only what moves the needle, and cut the noise.</p>
+			
+			<h3>Scale teams and delivery without chaos</h3>
+			<p>I can help with designing the right org structure, hiring intentionally, and building execution muscle.</p>
+			
+			<h3>Unblock growth, roadmap, or investor readiness</h3>
+			<p>Whether it's go-to-market, technical architecture, or due diligence — I bring clarity fast.</p>
+
+		</div>
+		<picture slot="image-container">
+			<img
+				src="/assets/images/landing-1/landing-sticky.jpg"
+				alt="Astro Odyssey"
+				loading="lazy"
+			/>
+		</picture>
+	</StickyTextImageSection>
+
+	<CtaCardSection
+		background="var(--theme-surface-1)"
+		color="var(--theme-on-surface-1)"
+	>
+		<h3>Learn more about my approach</h3>
+		<p>
+		</p>
+		<Button href="/theme/get-started" customIcon
+			>Get Started <Fragment slot="icon">
+				<Icon name="ic:baseline-chevron-right" />
+			</Fragment></Button
+		>
+	</CtaCardSection>
 
 <style>
 	.hero-section__section {

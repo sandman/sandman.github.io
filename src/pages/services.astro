@@ -1,0 +1,246 @@
+---
+import { TextSection, FeatureCard } from '@components/odyssey-theme';
+import Layout from '../layouts/Page.astro';
+import HeroSection from '../components/sections/heros/HeroSection.astro';
+
+const seo = {
+	title: 'Services | Fractional CTO & CPO for Startups and Growth Companies',
+	description: 'Fractional technology and product leadership services. Strategic guidance, team scaling, and execution for early-stage and growth companies.',
+};
+---
+
+<Layout {seo}>
+	<HeroSection>
+		<div slot="text-container">
+			<h1>Fractional CTO & CPO Services</h1>
+			<p>
+				Strategic technology and product leadership for startups and growth companies. 
+				Get senior-level expertise without the full-time commitment.
+			</p>
+		</div>
+		<div slot="image-container">
+			<div class="services-hero-graphic">
+				<div class="service-icon">⚡</div>
+				<div class="service-icon">🎯</div>
+				<div class="service-icon">📈</div>
+			</div>
+		</div>
+	</HeroSection>
+	
+	<TextSection>
+		<narrow>
+		<h2>Core Services</h2>
+		<p>
+			I partner with founders and leadership teams to bridge the gap between business strategy and technology execution. 
+			My approach combines deep technical expertise with strategic thinking to help companies scale efficiently.
+		</p>
+		</narrow>
+	</TextSection>
+
+	<div class="services-grid">
+		<FeatureCard>
+			<span slot="card-title">Strategic Technology Leadership</span>
+			<span slot="card-description">
+				<ul>
+					<li><strong>Technology Strategy & Roadmap:</strong> Align tech initiatives with business goals and market opportunities</li>
+					<li><strong>Architecture & Scalability Planning:</strong> Design systems that grow with your business</li>
+					<li><strong>Technical Due Diligence:</strong> Support fundraising and M&A activities with comprehensive tech assessments</li>
+					<li><strong>Innovation & R&D Direction:</strong> Identify emerging technologies and competitive advantages</li>
+				</ul>
+			</span>
+		</FeatureCard>
+
+		<FeatureCard>
+			<span slot="card-title">Product Strategy & Execution</span>
+			<span slot="card-description">
+				<ul>
+					<li><strong>Product-Market Fit:</strong> Define and validate product strategy, MVP development, and go-to-market</li>
+					<li><strong>Product Roadmap & Prioritization:</strong> Balance feature development with technical debt and scalability</li>
+					<li><strong>User Experience Strategy:</strong> Design customer-centric products that drive engagement and growth</li>
+					<li><strong>Data-Driven Decision Making:</strong> Implement analytics and metrics to optimize product performance</li>
+				</ul>
+			</span>
+		</FeatureCard>
+
+		<FeatureCard>
+			<span slot="card-title">Team Building & Operations</span>
+			<span slot="card-description">
+				<ul>
+					<li><strong>Team Scaling:</strong> Hire, onboard, and structure high-performing engineering and product teams</li>
+					<li><strong>Process Optimization:</strong> Implement agile methodologies, DevOps, and quality assurance practices</li>
+					<li><strong>Culture & Leadership:</strong> Foster innovation, collaboration, and technical excellence</li>
+					<li><strong>Performance Management:</strong> Set goals, track progress, and develop team capabilities</li>
+				</ul>
+			</span>
+		</FeatureCard>
+	</div>
+
+	<TextSection>
+		<narrow>
+		<h2>Engagement Models</h2>
+		<p>
+			I offer flexible engagement models designed to meet the unique needs and budgets of different companies. 
+			Each engagement is customized based on your specific challenges, growth stage, and objectives.
+		</p>
+		
+		<h3>Strategic Advisory (8-12 hours/month)</h3>
+		<p>
+			Perfect for early-stage startups or companies with existing tech leadership who need strategic guidance. 
+			Includes monthly strategy sessions, roadmap reviews, and on-demand consultation for critical decisions.
+		</p>
+		
+		<h3>Tactical Leadership (20-30 hours/month)</h3>
+		<p>
+			Ideal for growth companies scaling their teams and technology. Hands-on involvement in team management, 
+			product development, and operational improvements. Regular team meetings, code reviews, and process implementation.
+		</p>
+		
+		<h3>Executive Partnership (40+ hours/month)</h3>
+		<p>
+			Comprehensive technology and product leadership for companies without a full-time CTO/CPO. 
+			Full involvement in strategic planning, team leadership, investor relations, and day-to-day operations.
+		</p>
+		</narrow>
+	</TextSection>
+
+	<TextSection>
+		<narrow>
+		<h2>Why Choose Fractional Leadership?</h2>
+		
+		<h3>Cost-Effective Expertise</h3>
+		<p>
+			Get senior-level technology and product leadership at a fraction of the cost of a full-time hire. 
+			Perfect for startups and growth companies managing budget constraints while scaling.
+		</p>
+		
+		<h3>Immediate Impact</h3>
+		<p>
+			No lengthy onboarding or cultural fit concerns. I bring deep industry experience and can contribute 
+			from day one, helping you avoid common pitfalls and accelerate growth.
+		</p>
+		
+		<h3>Flexibility & Scalability</h3>
+		<p>
+			Adjust the level of engagement as your needs change. Start with strategic advisory and scale up to 
+			full leadership as your company grows, or transition to hiring a full-time executive when ready.
+		</p>
+		
+		<h3>External Perspective</h3>
+		<p>
+			Benefit from cross-industry insights and best practices. I bring experience from multiple companies, 
+			helping you learn from others' successes and mistakes.
+		</p>
+		</narrow>
+	</TextSection>
+
+	<TextSection>
+		<narrow>
+		<h2>Industries & Expertise</h2>
+		<p>
+			While I work across various industries, I have deep expertise in:
+		</p>
+		<ul>
+			<li><strong>Deep Tech & Hardware:</strong> Autonomous systems, IoT, robotics, and complex engineering challenges</li>
+			<li><strong>Mobility & Transportation:</strong> Connected vehicles, logistics, and smart transportation systems</li>
+			<li><strong>B2B SaaS & Platforms:</strong> Enterprise software, APIs, and scalable platform architectures</li>
+			<li><strong>Data & Analytics:</strong> Location intelligence, real-time processing, and machine learning applications</li>
+		</ul>
+		</narrow>
+	</TextSection>
+
+	<TextSection>
+		<div class="cta-section">
+			<h2>Ready to Scale Your Technology?</h2>
+			<p>
+				Whether you're preparing for your next funding round, scaling your team, or navigating technical challenges, 
+				I'm here to help you succeed. Let's discuss how fractional leadership can accelerate your growth.
+			</p>
+			<a href="/contact" class="cta-button">Get in Touch</a>
+		</div>
+	</TextSection>
+</Layout>
+
+<style>
+	.services-hero-graphic {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 2rem;
+		padding: 2rem;
+	}
+	
+	.service-icon {
+		font-size: 4rem;
+		opacity: 0.8;
+		animation: float 3s ease-in-out infinite;
+	}
+	
+	.service-icon:nth-child(2) {
+		animation-delay: -1s;
+	}
+	
+	.service-icon:nth-child(3) {
+		animation-delay: -2s;
+	}
+	
+	@keyframes float {
+		0%, 100% { transform: translateY(0px); }
+		50% { transform: translateY(-10px); }
+	}
+	
+	.services-grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 2rem;
+		margin: 3rem auto;
+		max-width: 1200px;
+		padding: 0 1rem;
+	}
+	
+	@media (min-width: 768px) {
+		.services-grid {
+			grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+		}
+	}
+	
+	.services-grid ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+	
+	.services-grid li {
+		margin-bottom: 1rem;
+		padding-left: 0;
+	}
+	
+	.services-grid strong {
+		color: var(--theme-primary);
+		display: block;
+		margin-bottom: 0.25rem;
+	}
+	
+	.cta-section {
+		text-align: center;
+		padding: 3rem 2rem;
+		background-color: var(--theme-surface-1);
+		border-radius: var(--theme-shape-radius);
+		margin: 2rem 0;
+	}
+	
+	.cta-button {
+		display: inline-block;
+		background-color: var(--theme-primary);
+		color: white;
+		padding: 1rem 2rem;
+		border-radius: var(--theme-shape-radius);
+		text-decoration: none;
+		font-weight: bold;
+		margin-top: 1rem;
+		transition: background-color 0.3s ease;
+	}
+	
+	.cta-button:hover {
+		background-color: var(--theme-primary-hover);
+	}
+</style>
