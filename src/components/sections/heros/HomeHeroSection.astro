@@ -13,7 +13,7 @@ import {ThemeSwitcher} from '../../theme-switcher/theme-switcher';
 				🚀 I'm Sandip, a fractional Chief Technology & Product Officer helping startups and scaleups build faster, scale smarter, and execute with confidence.
 				</p>
 				<div class="hero-btns__container">
-					<Button href="/contact" customIcon>Learn More
+					<Button href="#what-i-do" customIcon>Learn More
 					<Fragment slot="icon">
 					<Icon name="ic:baseline-chevron-right"/>
 					</Fragment>
@@ -35,20 +35,35 @@ import {ThemeSwitcher} from '../../theme-switcher/theme-switcher';
 
 	<StickyTextImageSection>
 		<div slot="text-container">
-			<h2>How I help</h2>
+			<h2 id="what-i-do">
+				<a href="#what-i-do" class="permalink">What I do</a>
+			</h2>
 			<p>
 				I partner with early-stage and growth companies as a hands-on fractional Chief Technology & Product Officer to:
 			</p>
-			<h3>Align product and tech with business strategy</h3>
+			<h3 id="strategy-alignment">
+				Align product and tech with business strategy
+			</h3>
 			<p>I help you define what matters, build only what moves the needle, and cut the noise.</p>
 			
-			<h3>Scale teams and delivery without chaos</h3>
+			<h3 id="team-scaling">
+				Scale teams and delivery without chaos
+			</h3>
 			<p>I can help with designing the right org structure, hiring intentionally, and building execution muscle.</p>
 			
-			<h3>Unblock growth, roadmap, or investor readiness</h3>
+			<h3 id="growth-unblocking">
+				Unblock growth, roadmap, or investor readiness
+			</h3>
 			<p>Whether it's go-to-market, technical architecture, or due diligence — I bring clarity fast.</p>
 
+			<h4>Learn more:</h4>
+
+		<Button href="/services" customIcon
+			>Services <Fragment slot="icon">
+				<Icon name="ic:baseline-chevron-right" />
+			</Fragment></Button>
 		</div>
+
 		<picture slot="image-container">
 			<img
 				src="/assets/images/home/strategy-session.jpg"
@@ -56,20 +71,14 @@ import {ThemeSwitcher} from '../../theme-switcher/theme-switcher';
 				loading="lazy"
 			/>
 		</picture>
+
 	</StickyTextImageSection>
 
 	<CtaCardSection
 		background="var(--theme-surface-1)"
 		color="var(--theme-on-surface-1)"
 	>
-		<h3>Learn more about my approach</h3>
-		<p>
-		</p>
-		<Button href="/theme/get-started" customIcon
-			>Get Started <Fragment slot="icon">
-				<Icon name="ic:baseline-chevron-right" />
-			</Fragment></Button
-		>
+
 	</CtaCardSection>
 
 <style>
@@ -107,5 +116,33 @@ import {ThemeSwitcher} from '../../theme-switcher/theme-switcher';
 		.hero-section__section {
 			grid-template-columns: 1fr;
 		}
+	}
+	
+	/* Permalink styles */
+	.permalink {
+		text-decoration: none;
+		color: inherit;
+		position: relative;
+	}
+	
+	.permalink:hover {
+		color: var(--theme-primary);
+	}
+	
+	.permalink:hover::after {
+		content: "🔗";
+		margin-left: 0.5rem;
+		font-size: 0.8em;
+		opacity: 0.7;
+	}
+	
+	/* Smooth scroll behavior for anchor links */
+	html {
+		scroll-behavior: smooth;
+	}
+	
+	/* Add some padding to account for fixed header */
+	h2[id], h3[id] {
+		scroll-margin-top: 100px;
 	}
 </style>
