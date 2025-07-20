@@ -26,12 +26,8 @@ export const footerLists = [
 		title: 'Content',
 		items: [
 			{
-				title: 'Blog',
-				slug: '/blog',
-			},
-			{
-				title: 'Archive',
-				slug: '/archive',
+				title: 'Writing',
+				slug: '/writing',
 			},
 			{
 				title: 'Projects',
