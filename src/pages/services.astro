@@ -1,5 +1,5 @@
 ---
-import { TextSection, FeatureCard } from '@components/odyssey-theme';
+import { TextSection, FeatureCard, Button, ThreeColumnTextSection } from '@components/odyssey-theme';
 import Layout from '../layouts/Page.astro';
 import HeroSection from '../components/sections/heros/HeroSection.astro';
 
@@ -37,43 +37,44 @@ const seo = {
 		</narrow>
 	</TextSection>
 
-	<div class="services-grid">
-		<FeatureCard>
-			<span slot="card-title">Strategic Technology Leadership</span>
-			<span slot="card-description">
+	<ThreeColumnTextSection>
+		<div slot="column-1-body">
+			<h3>Strategic Technology Leadership</h3>
+			<p>
 				<ul>
 					<li><strong>Technology Strategy & Roadmap:</strong> Align tech initiatives with business goals and market opportunities</li>
 					<li><strong>Architecture & Scalability Planning:</strong> Design systems that grow with your business</li>
 					<li><strong>Technical Due Diligence:</strong> Support fundraising and M&A activities with comprehensive tech assessments</li>
 					<li><strong>Innovation & R&D Direction:</strong> Identify emerging technologies and competitive advantages</li>
 				</ul>
-			</span>
-		</FeatureCard>
-
-		<FeatureCard>
-			<span slot="card-title">Product Strategy & Execution</span>
-			<span slot="card-description">
+			</p>
+		</div>
+		<!-- <Button slot="column-1-cta">Learn More</Button> -->
+		<div slot="column-2-body">
+			<h3>Product Strategy & Execution</h3>
+			<p>
 				<ul>
 					<li><strong>Product-Market Fit:</strong> Define and validate product strategy, MVP development, and go-to-market</li>
 					<li><strong>Product Roadmap & Prioritization:</strong> Balance feature development with technical debt and scalability</li>
 					<li><strong>User Experience Strategy:</strong> Design customer-centric products that drive engagement and growth</li>
 					<li><strong>Data-Driven Decision Making:</strong> Implement analytics and metrics to optimize product performance</li>
 				</ul>
-			</span>
-		</FeatureCard>
-
-		<FeatureCard>
-			<span slot="card-title">Team Building & Operations</span>
-			<span slot="card-description">
+			</p>
+		</div>
+		<!-- <Button slot="column-2-cta" outlined>Learn More</Button> -->
+		<div slot="column-3-body">
+			<h3>Team Building & Operations</h3>
+			<p>
 				<ul>
 					<li><strong>Team Scaling:</strong> Hire, onboard, and structure high-performing engineering and product teams</li>
 					<li><strong>Process Optimization:</strong> Implement agile methodologies, DevOps, and quality assurance practices</li>
 					<li><strong>Culture & Leadership:</strong> Foster innovation, collaboration, and technical excellence</li>
 					<li><strong>Performance Management:</strong> Set goals, track progress, and develop team capabilities</li>
 				</ul>
-			</span>
-		</FeatureCard>
-	</div>
+			</p>
+		</div>
+		<!-- <Button slot="column-3-cta">Learn More</Button> -->
+	</ThreeColumnTextSection>
 
 	<TextSection>
 		<narrow>
@@ -83,7 +84,7 @@ const seo = {
 			Each engagement is customized based on your specific challenges, growth stage, and objectives.
 		</p>
 		
-		<h3>Strategic Advisory (8-12 hours/month)</h3>
+		<h3>Strategic Advisory (Up to 12 hours/month)</h3>
 		<p>
 			Perfect for early-stage startups or companies with existing tech leadership who need strategic guidance. 
 			Includes monthly strategy sessions, roadmap reviews, and on-demand consultation for critical decisions.
@@ -92,7 +93,7 @@ const seo = {
 		<h3>Tactical Leadership (20-30 hours/month)</h3>
 		<p>
 			Ideal for growth companies scaling their teams and technology. Hands-on involvement in team management, 
-			product development, and operational improvements. Regular team meetings, code reviews, and process implementation.
+			product development, and operational improvements. Regular team meetings, process implementation and reviews.
 		</p>
 		
 		<h3>Executive Partnership (40+ hours/month)</h3>
@@ -103,7 +104,7 @@ const seo = {
 		</narrow>
 	</TextSection>
 
-	<TextSection>
+	<!-- <TextSection>
 		<narrow>
 		<h2>Why Choose Fractional Leadership?</h2>
 		
@@ -131,31 +132,34 @@ const seo = {
 			helping you learn from others' successes and mistakes.
 		</p>
 		</narrow>
-	</TextSection>
+	</TextSection> -->
 
 	<TextSection>
 		<narrow>
 		<h2>Industries & Expertise</h2>
 		<p>
-			While I work across various industries, I have deep expertise in:
+			While I work across various industries, I have first-hand experience in the following:
 		</p>
 		<ul>
-			<li><strong>Deep Tech & Hardware:</strong> Autonomous systems, IoT, robotics, and complex engineering challenges</li>
+			<li><strong>Autonomy & Hardware:</strong> Autonomous systems, IoT, robotics, and complex multi-domain engineering challenges</li>
 			<li><strong>Mobility & Transportation:</strong> Connected vehicles, logistics, and smart transportation systems</li>
 			<li><strong>B2B SaaS & Platforms:</strong> Enterprise software, APIs, and scalable platform architectures</li>
 			<li><strong>Data & Analytics:</strong> Location intelligence, real-time processing, and machine learning applications</li>
+			<li><strong>AI-native products:</strong> Agentic AI workflows, AI solution architectures, Evals etc.</li>
 		</ul>
 		</narrow>
 	</TextSection>
 
 	<TextSection>
 		<div class="cta-section">
-			<h2>Ready to Scale Your Technology?</h2>
+			<h2>Get in touch</h2>
 			<p>
 				Whether you're preparing for your next funding round, scaling your team, or navigating technical challenges, 
-				I'm here to help you succeed. Let's discuss how fractional leadership can accelerate your growth.
+				I can help you succeed. </p>
+			<p>
+				Schedule a free consultation to discuss your needs and explore how I can add value to your business.
 			</p>
-			<a href="/contact" class="cta-button">Get in Touch</a>
+			<a href="/contact" class="cta-button">Reach out</a>
 		</div>
 	</TextSection>
 </Layout>

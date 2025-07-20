@@ -30,8 +30,8 @@ export const footerLists = [
 				slug: '/writing',
 			},
 			{
-				title: 'Projects',
-				slug: '/projects',
+				title: 'Services',
+				slug: '/services',
 			},
 		],
 	},
