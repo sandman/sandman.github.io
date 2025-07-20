@@ -14,7 +14,7 @@ Startups are hard. [Deep-tech](https://en.wikipedia.org/wiki/Deep_tech#:~:text=D
 
 All this means that deep-tech startups require greater upfront investment compared to other startups in order to become successful businesses. However, raising sufficient initial capital is conditioned on many factors, some of which are beyond the control of the founding team. Hence, we focus on a scenario where a deeptech startup has to execute after raising very limited capital. What follows is a recipe for commercializing a deep-tech startup idea with very limited resources. Like any recipe, it is not to everyone's taste and it only applies given severe resource limitations. Furthermore, this is a complete recipe, described at a high level. Each step of the process can be dissected into detailed strategies and concrete tactics. This might be done in future posts.
 
-# Pre-requisites
+## Pre-requisites
 
 * A founding team that is 100% committed to the process of startup building
 * Complementary skills and deep domain knowledge amongst the founders.
@@ -23,13 +23,13 @@ All this means that deep-tech startups require greater upfront investment compar
 * A scrappy mindset for doing anything.
 * Ruthless focus on execution.
 
-# Method
+## Method
 
-## Step 1: An idea is born.
+### Step 1: An idea is born
 
 The first step is the birth of the idea itself. These are typically developed in an academic or industrial research environment.. It starts with one or more scientific discoveries or engineering innovations that may have several promising practical applications. The applications may not be immediately obvious at the time of discovery. The founding team must have had a direct exposure to these environments and understand the gaps in the science or technology that need to be filled in order to commercialize the technology.
 
-## Step 2: Map out the market opportunities
+### Step 2: Map out the market opportunities
 
 If the commercial application is not immediately clear, spend some time doing [customer discovery](https://www.momtestbook.com/) to understand the market for the various applications of the technology. This is a very tricky phase since the market for deep-tech doesn't exist yet or is in the nascent stages. Customer interest is muddled since there is no product out there for them to test. A classic chicken-and-egg problem. The key here is to understand which customer(s) have a *hair on fire* problem. As Michael Siebel [puts it](https://www.ycombinator.com/blog/the-real-product-market-fit/), if your friend was standing next to you and their hair was on fire, that fire would be the only thing they really cared about in this world. **In other words, the customer is desperate for a solution to this problem and will trial a half-baked proof-of-concept (PoC) if available.**
 
@@ -47,7 +47,7 @@ Try to estimate roughly how many such customers are out there and the total valu
 
 During this exercise, you will likely uncover many promising market segments or even completely different markets. Size each market segment based on all available knowledge (an art in itself)
 
-## Step 3: Assess the market readiness and product complexity
+### Step 3: Assess the market readiness and product complexity
 
 You've identified the market segments in Step 2. Now it is time to understand which market segment is the easiest to enter. Markets have many barriers to entry: competition, regulations, sluggishness due to incumbents etc. As a young, underfunded startup, it is crucial to know which market segment is easiest to commercially operate in. The way to concretely gauge this is through LoIs from prospective customers. The LoI should ideally state explicit demo requirements that could lead to a paid pilot.
 
@@ -62,7 +62,7 @@ We want to stay in the bottom right quadrant where the product complexity is low
 
 In reality, which market to address first will not always be crystal clear and will need some smart prototyping, industry knowledge and the ability to pivot quickly.
 
-## Step 4: Build the MVP. Fast.
+### Step 4: Build the MVP. Fast
 
 This can take anywhere from a few months to a few years. Focus on building the core functionality first. The core functionality is the set of features that will meet the minimum demo requirements outlined in the customers' Letter of Intents (LoI). Building anything more or different is likely to be a costly mistake. Remember that the MVP will undergo several iterations and rewrites so speed is of foremost importance. Another important aspect is the **clear demonstration of value** which comes down to the core feature(s) i.e. the hard to build innovation that solves the customer's hair-on-fire problem.
 
@@ -73,13 +73,13 @@ To minimize the cost of building the MVP, harness your professional and personal
 * **Research or startup funding grants** from Government or public sector organizations which can fund part or all of the MVP building costs.
 * **Remote talent** in the form of expert consultants or just highly skilled technical people who may not be available or affordable in your location.
 
-## Step 5: Deploy the MVP and iterate.
+### Step 5: Deploy the MVP and iterate
 
 Once the MVP is ready, deploy it to the customers and start getting feedback. Depending on how many simultaneous PoCs you are running, you should parse and prioritize customer feedback and integrate it into your product roadmap. Customers don't always know what they want especially when it comes to new products and services. Hence, it is important to categorize customer requirements into nice to have, wishlist, necessary and critical. Understand the why behind every customer feedback. Prioritize the backlog towards features that will uncover more insights or value for the entire segment and not a particular customer. There are exceptions to this, for example, when you have a single large customer with a strong interest or potential to convert into a high value pilot. However, be wary of being tied down to that one customer and becoming a consulting house. While there is nothing inherently wrong with this, it does not enable the creation of a high-growth, high-value technology company in the long run.
 
 ![Faster horse](/assets/images/faster-horse.png "Why customer feedback should not be blindly followed.")*Do not blindly follow customer feedback ([image source](https://yoursafetypal.com/faster-horse/))*
 
-## Step 6: From prototype to product
+### Step 6: From prototype to product
 
 The final step in the recipe is to build a true Minimum Viable Product from the prototype. Depending on the GTM and product strategy, this will require varying amounts of non-core product engineering to be built around the core features. To do this on a limited budget requires access to low cost highly skilled talent.
 
