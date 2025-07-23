@@ -6,8 +6,6 @@ tags: ["startups", "MVP", "lean startup", "startup lessons"]
 draft: false
 ---
 
-## Approaches to building your startup's MVP
-
 You have a startup idea that has been validated. This means that the problem statement is clear, the initial customers have been identified or secured and some signals for willingness to pay have been received.
 
 The next step is building a Minimum Viable Product (MVP) to validate your idea. This article describes various approaches you can take to build your MVP and provides a rubric to help you decide which approach is the right one for you.

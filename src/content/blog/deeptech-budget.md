@@ -6,8 +6,6 @@ tags: ["startups", "reflections", "founder insights", "playbook"]
 draft: false
 ---
 
-## Building a deep-tech startup on a shoestring budget
-
 Startups are hard. [Deep-tech](https://en.wikipedia.org/wiki/Deep_tech#:~:text=Deep%20technology%20(also%20deep%20tech,substantial%20scientific%20or%20engineering%20challenges.)) startups are harder. There is an added element of technical risk along with market, regulatory and financial risks. The time to market is several years making it crucial to balance customer and product development with the technology development. **Note that what is deep-tech today may not be so in the future as the technology matures.**
 
 > A moat is your startup's defensibility — i.e., your business's ability to maintain a competitive advantage to protect long-term market share and, therefore, make more profits.

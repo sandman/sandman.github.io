@@ -1,16 +1,11 @@
 ---
-import { Container } from '@components/odyssey-theme';
+import { Container, Button } from '@components/odyssey-theme';
 import Layout from './Page.astro'; 
-import { generateTagData } from '../utils/helpers';
 import ArticleSchema from '../components/schema/ArticleSchema.astro';
+import { Icon } from 'astro-icon/components';
 
 const {content: {title, description, publishDate, canonicalURL, featuredImage, tags} } = Astro.props;
 
-let allTagsData = [];
-
-if(tags && tags.length > 0){
-  allTagsData = generateTagData(tags);
-}
 
 const seo = {
 	title,
@@ -26,18 +21,26 @@ const slug = Astro.url.pathname.split('/').pop();
 <Layout seo={seo}> 
   <ArticleSchema title={title} description={description} publishDate={new Date(publishDate)} slug={slug} tags={tags} />
   <div class="post-header__container"> 
-    <ul class="post-tags__list">
-      {allTagsData.map(tag => (
+    <Button href="/writing" customIcon>
+      <Fragment slot="icon">
+        <Icon name="ic:baseline-arrow-back" />
+      </Fragment>
+      Back to Writing
+    </Button>
+    <!-- <ul class="post-tags__list">
+      {tags.map(tag => (
         <li class="post-tags__tag">
-          <a href={`/blog/tags/${tag.slug}`}>
-            {tag.title}
-          </a>
+          <a href={`/writing/tags/${tag}`}>{tag}</a>
         </li>
-      ))}
-    </ul>
+      ))} -->
+    <p></p>
     <h1>{title}</h1>
     <p class="post-layout__date">
-      <time><em>{publishDate}</em></time>
+      <time>{new Date(publishDate).toLocaleDateString('en-US', { 
+        year: 'numeric', 
+        month: 'short', 
+        day: 'numeric' 
+      })}</time>
     </p>
     {featuredImage && <img class="post-layout__img" src={featuredImage} alt={title} />}
   </div>
@@ -45,7 +48,15 @@ const slug = Astro.url.pathname.split('/').pop();
     <article id="article">
         <slot></slot>
     </article>
+    <Button href="/writing" customIcon>
+      <Fragment slot="icon">
+        <Icon name="ic:baseline-arrow-back" />
+      </Fragment>
+      Back to Writing
+    </Button>
+    <p></p>
   </Container>
+  <div class="post-footer__container">
 </Layout>
 
 <style>

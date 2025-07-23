@@ -15,12 +15,16 @@ type Props = CollectionEntry<'blog'>;
 const post = Astro.props;
 const { Content } = await post.render();
 
-const seo = {
+// Structure content data for Post.astro layout
+const content = {
   title: post.data.title,
   description: post.data.description,
+  publishDate: post.data.publishDate,
+  tags: post.data.tags,
+  featuredImage: post.data.featuredImage,
 };
 ---
 
-<Layout {seo} content={post}>
+<Layout {content}>
   <Content />
 </Layout>

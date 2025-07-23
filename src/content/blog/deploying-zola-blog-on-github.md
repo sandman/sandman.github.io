@@ -6,8 +6,6 @@ tags: ["blog", "Zola", "Github Pages", "deployment"]
 draft: false
 ---
 
-## Customizing and Deploying your Zola blog to GitHub Pages
-
 If you're a blogger or a developer looking to create and host your blog with minimal fuss, [Zola](https://www.getzola.org/) is an excellent choice. Zola is a fast, simple, and flexible static site generator written in [Rust](https://www.rust-lang.org/). One of the nice things about Zola is that it can be easily deployed to GitHub Pages, a **free and reliable hosting service provided by GitHub**. In this tutorial, I'll walk you through the process of customizing and deploying your Zola blog to GitHub Pages step by step.
 
 ### Prerequisites
