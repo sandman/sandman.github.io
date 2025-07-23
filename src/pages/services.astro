@@ -2,6 +2,7 @@
 import { TextSection, FeatureCard, Button, ThreeColumnTextSection } from '@components/odyssey-theme';
 import Layout from '../layouts/Page.astro';
 import HeroSection from '../components/sections/heros/HeroSection.astro';
+import OrganizationSchema from '../components/schema/OrganizationSchema.astro';
 
 const seo = {
 	title: 'Services | Fractional CTO & CPO for Startups and Growth Companies',
@@ -10,6 +11,7 @@ const seo = {
 ---
 
 <Layout {seo}>
+	<OrganizationSchema />
 	<HeroSection>
 		<div slot="text-container">
 			<h2>Fractional CTO & CPO Services</h2>

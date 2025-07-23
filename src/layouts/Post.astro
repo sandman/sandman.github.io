@@ -2,6 +2,7 @@
 import { Container } from '@components/odyssey-theme';
 import Layout from './Page.astro'; 
 import { generateTagData } from '../utils/helpers';
+import ArticleSchema from '../components/schema/ArticleSchema.astro';
 
 const {content: {title, description, publishDate, canonicalURL, featuredImage, tags} } = Astro.props;
 
@@ -18,8 +19,12 @@ const seo = {
 	canonicalURL,
 	image: featuredImage,
 };
+
+// Extract slug from URL
+const slug = Astro.url.pathname.split('/').pop();
 ---
 <Layout seo={seo}> 
+  <ArticleSchema title={title} description={description} publishDate={new Date(publishDate)} slug={slug} tags={tags} />
   <div class="post-header__container"> 
     <ul class="post-tags__list">
       {allTagsData.map(tag => (

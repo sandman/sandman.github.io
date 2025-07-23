@@ -1,0 +1,38 @@
+---
+import settings from '../../config/settings.js';
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": settings.name,
+  "url": settings.url,
+  "jobTitle": "Fractional CTO & CPO",
+  "description": settings.description,
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "London",
+    "addressCountry": "UK"
+  },
+  "knowsAbout": [
+    "Technology Leadership",
+    "Product Management", 
+    "Startup Consulting",
+    "Software Architecture",
+    "Team Scaling",
+    "Technical Strategy",
+    "Product Development",
+    "AI and Machine Learning",
+    "Agents and Agentic AI"
+  ],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Independent Consultant"
+  },
+  "sameAs": [
+    "https://linkedin.com/in/sandipgangakhedkar",
+    "https://twitter.com/sandipgh"
+  ]
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(personSchema)}></script>

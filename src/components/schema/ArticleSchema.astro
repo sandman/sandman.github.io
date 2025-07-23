@@ -1,0 +1,40 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  publishDate: Date;
+  slug: string;
+  tags?: string[];
+}
+
+const { title, description, publishDate, slug, tags } = Astro.props;
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "description": description,
+  "datePublished": publishDate.toISOString(),
+  "dateModified": publishDate.toISOString(),
+  "author": {
+    "@type": "Person",
+    "name": "Sandip Gangakhedkar",
+    "url": "https://sandip.live"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Sandip Gangakhedkar",
+    "url": "https://sandip.live"
+  },
+  "url": `https://sandip.live/writing/posts/${slug}`,
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": `https://sandip.live/writing/posts/${slug}`
+  },
+  ...(tags && tags.length > 0 && {
+    "keywords": tags.join(", ")
+  })
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(articleSchema)}></script>

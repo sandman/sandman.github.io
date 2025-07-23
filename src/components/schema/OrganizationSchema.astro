@@ -1,0 +1,33 @@
+---
+import settings from '../../config/settings.js';
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Sandip Gangakhedkar Consulting",
+  "url": settings.url,
+  "description": settings.description,
+  "founder": {
+    "@type": "Person",
+    "name": settings.name
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "London",
+    "addressCountry": "UK"
+  },
+  "areaServed": {
+    "@type": "Place",
+    "name": "Global"
+  },
+  "serviceType": [
+    "Technology Consulting",
+    "Fractional CTO Services",
+    "Product Leadership",
+    "Technical Strategy",
+    "Team Scaling"
+  ]
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(organizationSchema)}></script>
