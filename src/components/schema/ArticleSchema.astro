@@ -2,8 +2,8 @@
 export interface Props {
   title: string;
   description: string;
-  publishDate: Date;
-  slug: string;
+  publishDate?: Date;
+  slug?: string;
   tags?: string[];
 }
 
@@ -14,8 +14,10 @@ const articleSchema = {
   "@type": "Article",
   "headline": title,
   "description": description,
-  "datePublished": publishDate.toISOString(),
-  "dateModified": publishDate.toISOString(),
+  ...(publishDate && {
+    "datePublished": publishDate.toISOString(),
+    "dateModified": publishDate.toISOString(),
+  }),
   "author": {
     "@type": "Person",
     "name": "Sandip Gangakhedkar",
@@ -26,11 +28,13 @@ const articleSchema = {
     "name": "Sandip Gangakhedkar",
     "url": "https://sandip.live"
   },
-  "url": `https://sandip.live/writing/posts/${slug}`,
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": `https://sandip.live/writing/posts/${slug}`
-  },
+  ...(slug && {
+    "url": `https://sandip.live/writing/posts/${slug}`,
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://sandip.live/writing/posts/${slug}`
+    }
+  }),
   ...(tags && tags.length > 0 && {
     "keywords": tags.join(", ")
   })
