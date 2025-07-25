@@ -22,31 +22,49 @@ import Container from '../core/Container.astro';
   <style>
   .three-col-text__section {
     --column-count: 3;
-    --column-width: calc(100% / var(--column-count));
     margin: var(--section-margin) auto;
-    display: flex;
-    flex-wrap: wrap;
-    text-align: center;
-    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    align-items: start;
   }
   .three-col-text__column {
-    width: var(--column-width);
-    margin-bottom: 2rem;
-    padding: 1rem;
+    background-color: var(--theme-surface-1);
+    border-radius: var(--theme-shape-radius);
+    padding: 2rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    height: 100%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .three-col-text__column:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  }
+  .three-col-text__column h3 {
+    margin-top: 0;
+    color: var(--theme-primary);
+    text-align: center;
+  }
+  .three-col-text__column p {
+    text-align: left;
+    flex-grow: 1;
+    margin-bottom: 1rem;
   }
 
   @media(max-width: 1200px) {
     .three-col-text__section {
-      --column-count: 2;
+      grid-template-columns: repeat(2, 1fr);
     }
   }
   @media(max-width: 768px) {
     .three-col-text__section {
-      --column-count: 1;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    .three-col-text__column {
+      padding: 1.5rem;
     }
   }
 </style>
