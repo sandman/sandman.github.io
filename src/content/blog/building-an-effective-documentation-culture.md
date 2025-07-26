@@ -6,7 +6,7 @@ tags: ["startups", "documentation", "processes", "best-practices"]
 draft: false
 ---
 
-Documentation is often a dreaded word in most teams and organisations. The D-word is often associated with negative experiences like overhead, bureaucracy, processes, burden, etc. A part of the reason for this is the lack of guidelines or clarity around the purpose, scope and value of documentation. However, documentation done right can supercharge productivity and output of teams. For remote or hybird teams, a good documentation culture can have an even greater positive impact on productivity. This article aims to clarify the why, what, when and how of documentation for technical and operations teams. The goal is to provide a set of guidelines for creating a strong documentation culture that is oriented around the larger team/company goals and context.
+Documentation is often a dreaded word in most teams and organisations. The D-word is often associated with negative experiences like overhead, bureaucracy, processes, burden, etc. A part of the reason for this is the lack of guidelines or clarity around the purpose, scope and value of documentation. In other words, lack of a strong documentation culture. However, documentation done right can supercharge productivity and output of teams and organisations. For remote or hybird teams, a good documentation culture can boost productivity further. This article aims to clarify the why, what, when and how of documentation for primarily technical teams. The goal is to provide a set of guidelines for establishing a strong documentation culture aligned with the larger team/company goals and context.
 
 ### Why document?
 
