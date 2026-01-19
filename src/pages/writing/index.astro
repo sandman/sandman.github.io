@@ -6,6 +6,7 @@ import {
 	BlogPostsList,
 } from '@components/odyssey-theme';
 import Layout from '../../layouts/Page.astro';
+import BreadcrumbSchema from '../../components/schema/BreadcrumbSchema.astro';
 
 const blogPosts = await getCollection('blog', ({ data }) => {
 	return !data.draft;
@@ -24,12 +25,13 @@ const posts = blogPosts
 	.sort((a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime());
 
 const seo = {
-	title: 'Blog | Notes from the trenches',
-	description: 'Thoughts on startups, technology, and product development',
+	title: 'Tech Leadership Blog | Sandip Gangakhedkar',
+	description: 'Insights on startup technology, product development, team building, and fractional leadership from Sandip Gangakhedkar. Notes from two decades in tech.',
 };
 ---
 
 <Layout {seo}>
+	<BreadcrumbSchema items={[{ name: "Blog", url: "/writing" }]} />
 	<Container>
 		<TextCardSection>
 			<h1>Notes from the trenches</h1>

@@ -3,15 +3,21 @@ import { TextSection, FeatureCard, Button, ThreeColumnTextSection } from '@compo
 import Layout from '../layouts/Page.astro';
 import HeroSection from '../components/sections/heros/HeroSection.astro';
 import OrganizationSchema from '../components/schema/OrganizationSchema.astro';
+import ServiceSchema from '../components/schema/ServiceSchema.astro';
+import FAQSchema from '../components/schema/FAQSchema.astro';
+import BreadcrumbSchema from '../components/schema/BreadcrumbSchema.astro';
 
 const seo = {
-	title: 'Services | Fractional CTO & CPO for Startups and Growth Companies',
-	description: 'Fractional technology and product leadership services. Strategic guidance, team scaling, and execution for early-stage and growth companies.',
+	title: 'Fractional CTO & CPO Services London | Technology & Product Leadership',
+	description: 'Hire a fractional CTO or CPO in London. Strategic technology leadership, product management, team scaling, and technical due diligence for startups and growth companies. Flexible engagement models.',
 };
 ---
 
 <Layout {seo}>
 	<OrganizationSchema />
+	<ServiceSchema />
+	<FAQSchema />
+	<BreadcrumbSchema items={[{ name: "Services", url: "/services" }]} />
 	<HeroSection>
 		<div slot="text-container">
 			<h2>Fractional & Interim CTO & CPO Services</h2>

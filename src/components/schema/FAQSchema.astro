@@ -1,0 +1,51 @@
+---
+const faqs = [
+  {
+    question: "What is a Fractional CTO?",
+    answer: "A Fractional CTO is a part-time Chief Technology Officer who provides strategic technology leadership to companies that don't need or can't afford a full-time executive. They typically work with multiple clients, offering expertise in technology strategy, architecture decisions, team building, and technical due diligence on a flexible basis."
+  },
+  {
+    question: "What is a Fractional CPO?",
+    answer: "A Fractional CPO (Chief Product Officer) is a part-time product leadership executive who helps companies with product strategy, roadmap development, product-market fit validation, and user experience optimization. They bring senior product expertise without the commitment of a full-time hire."
+  },
+  {
+    question: "When should a startup hire a Fractional CTO?",
+    answer: "Startups should consider a Fractional CTO when they need senior technical leadership but aren't ready for a full-time hire, when preparing for fundraising and need technical due diligence support, when scaling their engineering team and need guidance on hiring and processes, or when making critical architecture decisions that will impact long-term growth."
+  },
+  {
+    question: "How does fractional leadership engagement work?",
+    answer: "Fractional leadership typically works through flexible engagement models: Strategic Advisory (a few hours per month for guidance and reviews), Tactical Leadership (20-30 hours per month for hands-on involvement), or Executive Partnership (2-3 days per week for comprehensive leadership). Each engagement is customized based on company needs, growth stage, and objectives."
+  },
+  {
+    question: "What industries does Sandip work with?",
+    answer: "Sandip has deep experience in Autonomy & Hardware (autonomous systems, IoT, robotics), Mobility & Transportation (connected vehicles, logistics), B2B SaaS & Platforms (enterprise software, APIs), Data & Analytics (location intelligence, ML applications), and AI-native products (agentic AI workflows, AI architectures)."
+  },
+  {
+    question: "What is the difference between a Fractional CTO and a consultant?",
+    answer: "While both provide expertise, a Fractional CTO acts as an embedded member of your leadership team, taking ownership of technology decisions and outcomes. They attend team meetings, make hiring decisions, and are accountable for technical delivery. A consultant typically provides advice and recommendations but doesn't take on the same level of operational responsibility."
+  },
+  {
+    question: "Can a Fractional CTO help with fundraising?",
+    answer: "Yes, Fractional CTOs often play a crucial role in fundraising by providing technical due diligence documentation, helping articulate the technology vision to investors, ensuring the technical roadmap aligns with business milestones, and building credibility with technically-minded investors."
+  },
+  {
+    question: "Where is Sandip based and does he work remotely?",
+    answer: "Sandip is based in London, UK, and works with clients globally. He offers both remote and hybrid engagement models, making his services accessible to companies worldwide while being available for in-person meetings when needed in the London area."
+  }
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>

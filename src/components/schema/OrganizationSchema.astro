@@ -3,29 +3,65 @@ import settings from '../../config/settings.js';
 
 const organizationSchema = {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Sandip Gangakhedkar Consulting",
+  "@type": "ProfessionalService",
+  "name": "Sandip Gangakhedkar - Fractional CTO & CPO",
   "url": settings.url,
-  "description": settings.description,
+  "description": "London-based fractional CTO and CPO providing technology and product leadership for startups and growth companies. Strategic advisory, team scaling, technical due diligence, and product strategy.",
   "founder": {
     "@type": "Person",
-    "name": settings.name
+    "name": settings.name,
+    "jobTitle": "Fractional CTO & CPO"
   },
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "London",
-    "addressCountry": "UK"
+    "addressRegion": "Greater London",
+    "addressCountry": "GB"
   },
-  "areaServed": {
-    "@type": "Place",
-    "name": "Global"
+  "areaServed": [
+    {
+      "@type": "Country",
+      "name": "United Kingdom"
+    },
+    {
+      "@type": "Place",
+      "name": "Global"
+    }
+  ],
+  "priceRange": "$$$$",
+  "knowsAbout": [
+    "Fractional CTO",
+    "Fractional CPO",
+    "Technology Leadership",
+    "Product Strategy",
+    "Technical Due Diligence",
+    "Team Scaling",
+    "Startup Advisory"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Fractional Leadership Services",
+    "itemListElement": [
+      {
+        "@type": "OfferCatalog",
+        "name": "Strategic Advisory",
+        "description": "Monthly strategy sessions and on-demand consultation"
+      },
+      {
+        "@type": "OfferCatalog",
+        "name": "Tactical Leadership",
+        "description": "Hands-on team management and product development"
+      },
+      {
+        "@type": "OfferCatalog",
+        "name": "Executive Partnership",
+        "description": "Comprehensive technology and product leadership"
+      }
+    ]
   },
-  "serviceType": [
-    "Technology Consulting",
-    "Fractional CTO Services",
-    "Product Leadership",
-    "Technical Strategy",
-    "Team Scaling"
+  "sameAs": [
+    "https://linkedin.com/in/sandipgangakhedkar",
+    "https://twitter.com/sandipgh"
   ]
 };
 ---

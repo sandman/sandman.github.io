@@ -1,14 +1,16 @@
 ---
 import Layout from '../layouts/Page.astro';
 import { Container, Button, FormInput, FormTextarea } from '@components/odyssey-theme';
+import BreadcrumbSchema from '../components/schema/BreadcrumbSchema.astro';
 
 const seo = {
-	title: 'Contact Sandip | Fractional Technology & Product Leader',
-	description: 'Contact Page to reach out to Sandip Gangakhedkar and discuss opportunities, collaborations, or inquiries.',
+	title: 'Contact Sandip Gangakhedkar | Hire Fractional CTO/CPO London',
+	description: 'Schedule a free discovery call with Sandip Gangakhedkar. Discuss your technology and product leadership needs. Fractional CTO and CPO services for startups and growth companies.',
 };
 ---
 
 <Layout seo={seo}>
+	<BreadcrumbSchema items={[{ name: "Contact", url: "/contact" }]} />
 	<Container>
 		<section class="contact-hero__section">
 			<div class="contact-hero__text-section">

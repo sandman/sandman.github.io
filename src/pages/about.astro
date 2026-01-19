@@ -2,14 +2,16 @@
 import { TextSection } from '@components/odyssey-theme';
 import Layout from '../layouts/Page.astro';
 import HeroSection from '../components/sections/heros/HeroSection.astro';
+import BreadcrumbSchema from '../components/schema/BreadcrumbSchema.astro';
 
 const seo = {
-	title: 'About Sandip | Fractional Technology & Product Leader',
-	description: 'About Sandip Gangakhedkar - Fractional technology and product leader specializing in building lean, innovative product engineering teams.',
+	title: 'About Sandip Gangakhedkar | Fractional CTO & CPO London',
+	description: 'Sandip Gangakhedkar is a London-based fractional CTO and CPO with 20+ years experience. Former Bell Labs researcher, startup co-founder, and product engineering leader.',
 };
 ---
 
 <Layout {seo}>
+	<BreadcrumbSchema items={[{ name: "About", url: "/about" }]} />
 	<HeroSection>
 		<div slot="text-container">
 			<h1>Hi, I'm Sandip</h1>
