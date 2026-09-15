@@ -1,0 +1,24 @@
+---
+/**
+ * A numbered section on the sheet. The number sits in the gutter,
+ * links to the section, and lights when the section is current.
+ */
+export interface Props {
+	id: string;
+	num: string;
+	title: string;
+	as?: 'h1' | 'h2';
+	class?: string;
+}
+
+const { id, num, title, as: Heading = 'h2', class: className } = Astro.props;
+const headingId = `${id}-title`;
+---
+
+<section class:list={['sec', className]} id={id} aria-labelledby={headingId} data-sec>
+	<a class="sec__num" href={`#${id}`} aria-label={`Section ${num}, link to ${title}`}>{num}</a>
+	<Heading id={headingId} class:list={['sec__title', Heading === 'h1' ? 'display' : 'h2']}>{title}</Heading>
+	<div class="sec__body">
+		<slot />
+	</div>
+</section>

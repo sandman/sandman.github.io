@@ -1,0 +1,437 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-14T00:00:00Z",
+  "title": "Design System: sandip.live",
+  "extensions": {
+    "colorMeta": {
+      "signal": {
+        "role": "primary",
+        "displayName": "Carrier Green",
+        "canonical": "oklch(0.66 0.17 150)",
+        "tonalRamp": [
+          "oklch(0.15 0.17 150)",
+          "oklch(0.26 0.17 150)",
+          "oklch(0.38 0.17 150)",
+          "oklch(0.49 0.17 150)",
+          "oklch(0.61 0.17 150)",
+          "oklch(0.72 0.17 150)",
+          "oklch(0.84 0.17 150)",
+          "oklch(0.95 0.17 150)"
+        ]
+      },
+      "signal-ink": {
+        "role": "primary",
+        "displayName": "Signal Ink",
+        "canonical": "oklch(0.46 0.12 152)",
+        "tonalRamp": [
+          "oklch(0.15 0.12 152)",
+          "oklch(0.26 0.12 152)",
+          "oklch(0.38 0.12 152)",
+          "oklch(0.49 0.12 152)",
+          "oklch(0.61 0.12 152)",
+          "oklch(0.72 0.12 152)",
+          "oklch(0.84 0.12 152)",
+          "oklch(0.95 0.12 152)"
+        ]
+      },
+      "signal-wash": {
+        "role": "primary",
+        "displayName": "Signal Wash",
+        "canonical": "oklch(0.94 0.045 150)",
+        "tonalRamp": [
+          "oklch(0.15 0.045 150)",
+          "oklch(0.26 0.045 150)",
+          "oklch(0.38 0.045 150)",
+          "oklch(0.49 0.045 150)",
+          "oklch(0.61 0.045 150)",
+          "oklch(0.72 0.045 150)",
+          "oklch(0.84 0.045 150)",
+          "oklch(0.95 0.045 150)"
+        ]
+      },
+      "alert": {
+        "role": "secondary",
+        "displayName": "Brick Alert",
+        "canonical": "oklch(0.5 0.17 30)",
+        "tonalRamp": [
+          "oklch(0.15 0.17 30)",
+          "oklch(0.26 0.17 30)",
+          "oklch(0.38 0.17 30)",
+          "oklch(0.49 0.17 30)",
+          "oklch(0.61 0.17 30)",
+          "oklch(0.72 0.17 30)",
+          "oklch(0.84 0.17 30)",
+          "oklch(0.95 0.17 30)"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Cool Paper",
+        "canonical": "oklch(0.985 0.003 247)",
+        "tonalRamp": [
+          "oklch(0.15 0.003 247)",
+          "oklch(0.26 0.003 247)",
+          "oklch(0.38 0.003 247)",
+          "oklch(0.49 0.003 247)",
+          "oklch(0.61 0.003 247)",
+          "oklch(0.72 0.003 247)",
+          "oklch(0.84 0.003 247)",
+          "oklch(0.95 0.003 247)"
+        ]
+      },
+      "paper-sunk": {
+        "role": "neutral",
+        "displayName": "Sunk Paper",
+        "canonical": "oklch(0.962 0.005 250)",
+        "tonalRamp": [
+          "oklch(0.15 0.005 250)",
+          "oklch(0.26 0.005 250)",
+          "oklch(0.38 0.005 250)",
+          "oklch(0.49 0.005 250)",
+          "oklch(0.61 0.005 250)",
+          "oklch(0.72 0.005 250)",
+          "oklch(0.84 0.005 250)",
+          "oklch(0.95 0.005 250)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Graphite Ink",
+        "canonical": "oklch(0.2 0.014 262)",
+        "tonalRamp": [
+          "oklch(0.15 0.014 262)",
+          "oklch(0.26 0.014 262)",
+          "oklch(0.38 0.014 262)",
+          "oklch(0.49 0.014 262)",
+          "oklch(0.61 0.014 262)",
+          "oklch(0.72 0.014 262)",
+          "oklch(0.84 0.014 262)",
+          "oklch(0.95 0.014 262)"
+        ]
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Soft Graphite",
+        "canonical": "oklch(0.35 0.013 262)",
+        "tonalRamp": [
+          "oklch(0.15 0.013 262)",
+          "oklch(0.26 0.013 262)",
+          "oklch(0.38 0.013 262)",
+          "oklch(0.49 0.013 262)",
+          "oklch(0.61 0.013 262)",
+          "oklch(0.72 0.013 262)",
+          "oklch(0.84 0.013 262)",
+          "oklch(0.95 0.013 262)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Pencil",
+        "canonical": "oklch(0.49 0.012 262)",
+        "tonalRamp": [
+          "oklch(0.15 0.012 262)",
+          "oklch(0.26 0.012 262)",
+          "oklch(0.38 0.012 262)",
+          "oklch(0.49 0.012 262)",
+          "oklch(0.61 0.012 262)",
+          "oklch(0.72 0.012 262)",
+          "oklch(0.84 0.012 262)",
+          "oklch(0.95 0.012 262)"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "oklch(0.905 0.006 262)",
+        "tonalRamp": [
+          "oklch(0.15 0.006 262)",
+          "oklch(0.26 0.006 262)",
+          "oklch(0.38 0.006 262)",
+          "oklch(0.49 0.006 262)",
+          "oklch(0.61 0.006 262)",
+          "oklch(0.72 0.006 262)",
+          "oklch(0.84 0.006 262)",
+          "oklch(0.95 0.006 262)"
+        ]
+      },
+      "rule-strong": {
+        "role": "neutral",
+        "displayName": "Strong Hairline",
+        "canonical": "oklch(0.8 0.008 262)",
+        "tonalRamp": [
+          "oklch(0.15 0.008 262)",
+          "oklch(0.26 0.008 262)",
+          "oklch(0.38 0.008 262)",
+          "oklch(0.49 0.008 262)",
+          "oklch(0.61 0.008 262)",
+          "oklch(0.72 0.008 262)",
+          "oklch(0.84 0.008 262)",
+          "oklch(0.95 0.008 262)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Page h1 in the first numbered section; Martian Mono narrowed to wdth 87.5, max 19ch."
+      },
+      "display-article": {
+        "displayName": "Display, article",
+        "purpose": "Article titles, max 22ch, balanced."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Numbered section titles after the first, max 28ch."
+      },
+      "prose-h2": {
+        "displayName": "Prose heading 2",
+        "purpose": "Article h2, with a gutter counter when numbered."
+      },
+      "prose-h3": {
+        "displayName": "Prose heading 3",
+        "purpose": "Article h3."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Record row titles."
+      },
+      "lede": {
+        "displayName": "Lede",
+        "purpose": "One-paragraph section opener in ink, 40rem."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Interface prose in Soft Graphite."
+      },
+      "prose": {
+        "displayName": "Prose",
+        "purpose": "Article reading text, 40rem measure."
+      },
+      "item-title": {
+        "displayName": "Item title",
+        "purpose": "Post list titles and FAQ questions."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Nav, form labels, section numbers, dates, row metadata, footer; sentence case."
+      },
+      "action": {
+        "displayName": "Action",
+        "purpose": "Buttons and action links."
+      },
+      "micro": {
+        "displayName": "Micro",
+        "purpose": "Citation keys, table-of-contents numbers, captions."
+      }
+    },
+    "shadows": [
+      {
+        "name": "focus-ring",
+        "value": "0 0 0 1px var(--ink)",
+        "purpose": "Doubles an input border on focus-visible; a border treatment, not elevation."
+      },
+      {
+        "name": "error-ring",
+        "value": "0 0 0 1px var(--alert)",
+        "purpose": "Doubles an input border inside an invalid field."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Exponential ease-out for every transition in the system."
+      },
+      {
+        "name": "duration-quick",
+        "value": "250ms",
+        "purpose": "Link colour and underline, input and tag border, topic border."
+      },
+      {
+        "name": "duration-standard",
+        "value": "300ms",
+        "purpose": "Button fill inversion, topic check square scale, skip link."
+      },
+      {
+        "name": "duration-settle",
+        "value": "350ms",
+        "purpose": "Arrow nudges, section number lighting, FAQ plus rotation."
+      },
+      {
+        "name": "duration-landing",
+        "value": "600ms",
+        "purpose": "Signal Wash on a targeted reference row."
+      },
+      {
+        "name": "led-breath",
+        "value": "3.2s infinite, opacity 1 to 0.3 at 55%",
+        "purpose": "The live LED on Now and Current; disabled under reduced motion."
+      },
+      {
+        "name": "arrow-nudge",
+        "value": "translateX(3px) | translateY(3px) | translate(2px, -2px)",
+        "purpose": "Icon moves toward its direction on button or link hover."
+      },
+      {
+        "name": "focus-outline",
+        "value": "2px solid var(--signal-ink), offset 3px",
+        "purpose": "Global focus-visible outline."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "narrow",
+        "value": "max-width: 52rem",
+        "purpose": "Gutter collapses, axis and markers hide, rows go single column, actions stack."
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The single filled graphite action on a view; inverts to paper on hover and nudges its arrow.",
+      "html": "<button class=\"ds-btn\" type=\"button\">Start an enquiry <svg class=\"ds-icon\" width=\"12\" height=\"12\" viewBox=\"0 0 12 12\" fill=\"none\" aria-hidden=\"true\"><path d=\"M1.5 6h8.5M7 2.75 10.25 6 7 9.25\" stroke=\"currentColor\" stroke-width=\"1.25\" stroke-linecap=\"square\"/></svg></button>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; gap: 0.75rem; min-height: 3rem; padding: 0 1.25rem; border: 1px solid var(--ink); border-radius: 0; background: var(--ink); color: var(--paper); font-family: var(--font-mono); font-size: 0.8125rem; font-weight: 500; line-height: 1.2; cursor: pointer; transition: background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn .ds-icon { width: 0.75rem; height: 0.75rem; transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn:hover { background: var(--paper); color: var(--ink); } .ds-btn:hover .ds-icon { transform: translateX(3px); } .ds-btn:focus-visible { outline: 2px solid var(--signal-ink); outline-offset: 3px; } .ds-btn:disabled { border-color: var(--muted); background: var(--muted); color: var(--paper); cursor: progress; }"
+    },
+    {
+      "name": "Action Link",
+      "kind": "button",
+      "refersTo": "text-link-action",
+      "description": "Secondary mono action beside the button, underlined with a Strong Hairline.",
+      "html": "<a class=\"ds-link\" href=\"#\">How I work with teams <svg class=\"ds-icon\" width=\"12\" height=\"12\" viewBox=\"0 0 12 12\" fill=\"none\" aria-hidden=\"true\"><path d=\"M1.5 6h8.5M7 2.75 10.25 6 7 9.25\" stroke=\"currentColor\" stroke-width=\"1.25\" stroke-linecap=\"square\"/></svg></a>",
+      "css": ".ds-link { display: inline-flex; align-items: center; gap: 0.5rem; min-height: 2.75rem; color: var(--ink); font-family: var(--font-mono); font-size: 0.8125rem; line-height: 1.3; text-decoration: underline 1px var(--rule-strong); text-underline-offset: 0.24em; transition: text-decoration-color 0.25s cubic-bezier(0.16, 1, 0.3, 1); } .ds-link .ds-icon { width: 0.75rem; height: 0.75rem; transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1); } .ds-link:hover { text-decoration-color: currentColor; } .ds-link:hover .ds-icon { transform: translateX(3px); } .ds-link:focus-visible { outline: 2px solid var(--signal-ink); outline-offset: 3px; }"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input-field",
+      "description": "Square ruled input with a mono label; the border doubles in ink on focus and in alert on error.",
+      "html": "<div class=\"ds-field\"><label class=\"ds-label\" for=\"ds-email\">Email</label><input class=\"ds-input\" id=\"ds-email\" type=\"email\"></div>",
+      "css": ".ds-field { display: grid; gap: 0.5rem; max-width: 40rem; } .ds-label { color: var(--ink); font-family: var(--font-mono); font-size: 0.75rem; font-weight: 500; line-height: 1.4; } .ds-input { width: 100%; min-height: 3rem; padding: 0.75rem 0.875rem; border: 1px solid var(--rule-strong); border-radius: 0; background: var(--paper); color: var(--ink); font-family: var(--font-sans); font-size: 1rem; line-height: 1.5; transition: border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1); } .ds-input:hover { border-color: var(--muted); } .ds-input:focus-visible { outline: none; border-color: var(--ink); box-shadow: 0 0 0 1px var(--ink); } .ds-input[aria-invalid='true'] { border-color: var(--alert); box-shadow: 0 0 0 1px var(--alert); }"
+    },
+    {
+      "name": "Topic Chooser",
+      "kind": "custom",
+      "refersTo": "topic-option",
+      "description": "Radio group as stacked ruled options; the checked option takes an ink border and a green square.",
+      "html": "<fieldset class=\"ds-topics\"><label class=\"ds-topic\"><input type=\"radio\" name=\"ds-topic\" checked><span><span class=\"ds-topic__label\">I'm a founder or scale-up</span><span class=\"ds-topic__hint\">Fractional CTO and CPO, technical due diligence</span></span></label><label class=\"ds-topic\"><input type=\"radio\" name=\"ds-topic\"><span><span class=\"ds-topic__label\">Speaking or press</span><span class=\"ds-topic__hint\">Talks, panels, podcasts, interviews</span></span></label></fieldset>",
+      "css": ".ds-topics { min-width: 0; max-width: 40rem; padding: 0; margin: 0; border: 0; } .ds-topic { position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 1rem; margin-top: -1px; padding: 0.9375rem 1rem; border: 1px solid var(--rule-strong); background: var(--paper); cursor: pointer; transition: border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1); } .ds-topic:first-of-type { margin-top: 0; } .ds-topic:hover { z-index: 1; border-color: var(--muted); } .ds-topic:has(input:checked) { z-index: 2; border-color: var(--ink); } .ds-topic input { display: grid; place-items: center; width: 1rem; height: 1rem; margin: 0; border: 1px solid var(--rule-strong); background: var(--paper); appearance: none; cursor: pointer; } .ds-topic input::before { content: ''; width: 0.5rem; height: 0.5rem; background: var(--signal); transform: scale(0); transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); } .ds-topic input:checked { border-color: var(--ink); } .ds-topic input:checked::before { transform: scale(1); } .ds-topic input:focus-visible { outline: 2px solid var(--signal-ink); outline-offset: 3px; } .ds-topic__label { display: block; color: var(--ink); font-family: var(--font-sans); font-size: 1rem; line-height: 1.4; } .ds-topic__hint { display: block; margin-top: 0.125rem; color: var(--muted); font-family: var(--font-sans); font-size: 0.875rem; line-height: 1.45; }"
+    },
+    {
+      "name": "Masthead Navigation",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Ruled mono masthead; the current page is ink with a 7px green square.",
+      "html": "<header class=\"ds-mast\"><p class=\"ds-mast__id\"><a class=\"ds-mast__name\" href=\"#\">Sandip Gangakhedkar</a><span class=\"ds-mast__place\">London</span></p><nav><ul class=\"ds-nav\"><li><a href=\"#\" aria-current=\"page\">Services</a></li><li><a href=\"#\">Projects</a></li><li><a href=\"#\">Writing</a></li><li><a href=\"#\">About</a></li><li><a href=\"#\">Contact</a></li></ul></nav></header>",
+      "css": ".ds-mast { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; min-height: 4.5rem; border-bottom: 1px solid var(--rule); font-family: var(--font-mono); font-size: 0.75rem; line-height: 1.4; } .ds-mast__id { display: flex; gap: 1.25rem; margin: 0; } .ds-mast__name { color: var(--ink); font-weight: 500; text-decoration: none; } .ds-mast__place { color: var(--muted); } .ds-nav { display: flex; flex-wrap: wrap; column-gap: 1.5rem; margin: 0; padding: 0; list-style: none; } .ds-nav a { display: inline-flex; align-items: center; gap: 0.5rem; padding-block: 0.875rem; color: var(--muted); text-decoration: none; transition: color 0.25s cubic-bezier(0.16, 1, 0.3, 1); } .ds-nav a:hover, .ds-nav a[aria-current='page'] { color: var(--ink); } .ds-nav a[aria-current='page']::before { content: ''; width: 0.4375rem; height: 0.4375rem; background: var(--signal); } .ds-nav a:focus-visible { outline: 2px solid var(--signal-ink); outline-offset: 3px; }"
+    },
+    {
+      "name": "Tag Chip",
+      "kind": "chip",
+      "refersTo": "tag-chip",
+      "description": "Square outlined mono tag with a Pencil count; hover darkens to ink.",
+      "html": "<a class=\"ds-tag\" href=\"#\">startups <span class=\"ds-tag__count\">3</span></a>",
+      "css": ".ds-tag { display: inline-flex; align-items: center; gap: 0.5rem; min-height: 2.25rem; padding: 0 0.75rem; border: 1px solid var(--rule-strong); color: var(--ink-2); font-family: var(--font-mono); font-size: 0.75rem; text-decoration: none; transition: border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s cubic-bezier(0.16, 1, 0.3, 1); } .ds-tag:hover { border-color: var(--ink); color: var(--ink); } .ds-tag:focus-visible { outline: 2px solid var(--signal-ink); outline-offset: 3px; } .ds-tag__count { color: var(--muted); }"
+    },
+    {
+      "name": "Record Row",
+      "kind": "card",
+      "refersTo": "record-row",
+      "description": "Two-column dated record with a mono outcome line, citation keys and a green axis marker when current.",
+      "html": "<ul class=\"ds-rows\"><li class=\"ds-row ds-row--now\"><div><h3 class=\"ds-row__title\">Imperium Drive and Fetch</h3><p class=\"ds-row__kind\">Co-founder, human-in-the-loop autonomy</p><p class=\"ds-row__when\">Fetch launched 2023</p></div><div class=\"ds-row__body\"><p>Pioneered a human-in-the-loop approach to autonomous driving, then launched Fetch.</p><p class=\"ds-row__out\">Covered by Reuters and BBC News. <a class=\"ds-cite\" href=\"#\">[REUTERS-2022]</a></p><a class=\"ds-row__go\" href=\"#\">fetchcar.io <svg class=\"ds-icon\" width=\"12\" height=\"12\" viewBox=\"0 0 12 12\" fill=\"none\" aria-hidden=\"true\"><path d=\"M3 9 9 3M4.25 3H9v4.75\" stroke=\"currentColor\" stroke-width=\"1.25\" stroke-linecap=\"square\"/></svg></a></div></li></ul>",
+      "css": ".ds-rows { max-width: 44rem; margin: 0; padding: 0 0 0 1.5rem; border-top: 1px solid var(--rule); list-style: none; } .ds-row { position: relative; display: grid; grid-template-columns: minmax(0, 15rem) minmax(0, 1fr); column-gap: 2rem; padding-block: 1.625rem; border-bottom: 1px solid var(--rule); color: var(--ink-2); font-family: var(--font-sans); } .ds-row::before { content: ''; position: absolute; top: 2.05rem; left: calc(-1.5rem - 2px); width: 5px; height: 5px; background: var(--rule-strong); } .ds-row--now::before { left: calc(-1.5rem - 4px); width: 9px; height: 9px; margin-top: -2px; background: var(--signal); } .ds-row p { margin: 0; } .ds-row__title { margin: 0; color: var(--ink); font-family: var(--font-mono); font-size: 1rem; font-weight: 500; line-height: 1.4; letter-spacing: -0.01em; } .ds-row__kind, .ds-row__when { margin-top: 0.4375rem; font-family: var(--font-mono); font-size: 0.75rem; line-height: 1.55; } .ds-row__kind { color: var(--muted); } .ds-row__when { margin-top: 0.25rem; color: var(--ink-2); } .ds-row__body { min-width: 0; font-size: 1rem; line-height: 1.6; } .ds-row__out { margin-top: 0.75rem !important; color: var(--ink); font-family: var(--font-mono); font-size: 0.75rem; line-height: 1.65; } .ds-cite { color: var(--muted); font-family: var(--font-mono); font-size: 0.6875rem; text-decoration: none; white-space: nowrap; } .ds-cite:hover { color: var(--signal-ink); } .ds-row__go { display: inline-flex; align-items: center; gap: 0.4375rem; margin-top: 0.75rem; color: var(--muted); font-family: var(--font-mono); font-size: 0.75rem; line-height: 1.5; text-decoration: underline 1px var(--rule-strong); text-underline-offset: 0.24em; } .ds-row__go:hover { color: var(--ink); text-decoration-color: currentColor; } .ds-row__go .ds-icon { width: 0.75rem; height: 0.75rem; transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1); } .ds-row__go:hover .ds-icon { transform: translate(2px, -2px); }"
+    },
+    {
+      "name": "Now Status Strip",
+      "kind": "custom",
+      "refersTo": "status-label",
+      "description": "Ruled strip with a breathing green LED and a Signal Ink mono label.",
+      "html": "<p class=\"ds-status\"><span class=\"ds-status__label\"><span class=\"ds-led\" aria-hidden=\"true\"></span>Now</span><span>Building a new venture at the intersection of AI and institutional finance.</span></p>",
+      "css": ".ds-status { display: flex; align-items: baseline; gap: 1rem; max-width: 40rem; margin: 0; padding-block: 0.9375rem; border-block: 1px solid var(--rule); color: var(--ink); font-family: var(--font-sans); font-size: 1rem; line-height: 1.5; } .ds-status__label { display: inline-flex; flex: none; align-items: center; gap: 0.5rem; color: var(--signal-ink); font-family: var(--font-mono); font-size: 0.75rem; font-weight: 500; } .ds-led { flex: none; width: 0.4375rem; height: 0.4375rem; background: var(--signal); animation: ds-led-breath 3.2s cubic-bezier(0.16, 1, 0.3, 1) infinite; } @keyframes ds-led-breath { 0%, 100% { opacity: 1; } 55% { opacity: 0.3; } } @media (prefers-reduced-motion: reduce) { .ds-led { animation: none; } }"
+    },
+    {
+      "name": "Gutter Section Number",
+      "kind": "custom",
+      "refersTo": "section-number",
+      "description": "Functional section number on the axis; lights green when current and copies its link on click.",
+      "html": "<div class=\"ds-sec\"><a class=\"ds-sec__num is-current\" href=\"#\">02</a><h2 class=\"ds-sec__title\">What I've built.</h2></div>",
+      "css": ".ds-sec { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); align-items: baseline; padding-block: 2rem; border-top: 1px solid var(--rule); background: linear-gradient(var(--rule), var(--rule)) 7.5rem 0 / 1px 100% no-repeat; } .ds-sec__num { position: relative; padding-right: 1.5rem; color: var(--muted); font-family: var(--font-mono); font-size: 0.75rem; line-height: 1; text-align: right; text-decoration: none; transition: color 0.35s cubic-bezier(0.16, 1, 0.3, 1); } .ds-sec__num::after { content: ''; position: absolute; top: 50%; right: -4px; width: 9px; height: 9px; margin-top: -4.5px; border: 1px solid var(--rule-strong); background: var(--paper); transition: background-color 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1); } .ds-sec__num:hover { color: var(--ink); } .ds-sec__num.is-current { color: var(--signal-ink); } .ds-sec__num.is-current::after { border-color: var(--signal); background: var(--signal); } .ds-sec__num:focus-visible { outline: 2px solid var(--signal-ink); outline-offset: 3px; } .ds-sec__title { margin: 0; padding-left: 1.5rem; color: var(--ink); font-family: var(--font-mono); font-size: clamp(1.75rem, 1.2rem + 2.1vw, 2.875rem); font-weight: 500; font-variation-settings: 'wdth' 87.5; line-height: 1.12; letter-spacing: -0.028em; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Sourced Record",
+    "overview": "**Creative North Star: \"The Sourced Record\"**\n\nThe site is one light sheet of cool paper ruled with hairlines, laid out like a technical record. Every section has a number in a left gutter. Every claim sits in a dated row and resolves to a bracketed citation, and one green square marks what is happening now. The world is built from what a precise document already has: numbering, dates, citation keys, a reading measure and ruled lines. It gets no extra ornament.\n\nDensity is calm but exact. Large, narrowed monospace headlines stand over short sans-serif prose kept to a 40rem measure, while the right third of wide screens stays open paper. Structure comes from 1px rules and alignment to a single vertical axis, never from cards, fills or shadows. Colour is almost entirely graphite on paper. The green signal carries meaning, so it is rare.\n\nMotion is slow and quiet. Colours ease over 250 to 350ms on an exponential ease-out, the Now LED breathes, and small arrows nudge towards where they point. Nothing is hidden until scroll reveals it. The inspiration the user pinned is killenberger.com, rendered light.",
+    "keyCharacteristics": [
+      "Cool paper, graphite ink, hairline rules, a single carrier-green signal.",
+      "Martian Mono narrowed to 87.5 width for headings, numbers, dates, labels and actions; Atkinson Hyperlegible Next for reading.",
+      "A 7.5rem gutter axis with functional section numbers that light and copy links.",
+      "Two-column record rows with mono metadata and outcome lines.",
+      "Bracketed citation keys that resolve to a References list.",
+      "Square everything: zero radius, square LEDs, square markers, square-capped SVG arrows.",
+      "Flat surfaces; depth comes only from rules and a 1px focus ring."
+    ],
+    "rules": [
+      {
+        "name": "The One Signal Rule",
+        "body": "Green means now, current or selected. If a green element does not mark a state, remove it. Filled green appears only as a square; any green text uses Signal Ink.",
+        "section": "colors"
+      },
+      {
+        "name": "The Graphite Action Rule",
+        "body": "The one filled action on a view is graphite ink, never green. Hover inverts it to paper with an ink border.",
+        "section": "colors"
+      },
+      {
+        "name": "The Record and Reading Rule",
+        "body": "Anything a reader scans as data (numbers, dates, keys, labels, controls, headings) is mono. Anything read as argument is sans. Never set a paragraph in mono.",
+        "section": "typography"
+      },
+      {
+        "name": "The Sentence Case Rule",
+        "body": "Labels are small mono in sentence case with normal tracking. The system has no uppercase tracked labels.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tabular Rule",
+        "body": "Times, code and numeric mono text use tabular numerals so dated columns align.",
+        "section": "typography"
+      },
+      {
+        "name": "The Axis Rule",
+        "body": "Everything aligns to the gutter axis. New content goes in the content column, and only section numbers, row markers and prose heading counters sit on or in the gutter.",
+        "section": "layout"
+      },
+      {
+        "name": "The Open Right Rule",
+        "body": "Keep prose to 40rem and lists to 44rem. Do not stretch copy to fill the frame; the open paper is part of the composition.",
+        "section": "layout"
+      },
+      {
+        "name": "The Hairline Rule",
+        "body": "Group with a 1px rule, never a card, fill or shadow. Use Hairline for dividers, Strong Hairline for control outlines at rest and Graphite Ink for selected, focused or emphasised edges.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** use Carrier Green only as a filled square marking now, current or selected, and set any green text in Signal Ink.",
+      "**Do** separate content with 1px rules: Hairline between items, Strong Hairline around controls at rest, Graphite Ink for selected, focused or emphasised edges.",
+      "**Do** put a new top-level block in a numbered section so its number sits in the 7.5rem gutter and joins the section tracker.",
+      "**Do** set headings, numbers, dates, labels and actions in Martian Mono (headlines at 'wdth' 87.5), and set reading text in Atkinson Hyperlegible Next within 40rem.",
+      "**Do** back a factual claim with a citation key that resolves to References.",
+      "**Do** keep every corner square (0 radius) and use the authored 12px square-cap SVG arrows.",
+      "**Do** animate colour, border and small transforms only, at 250 to 350ms on cubic-bezier(0.16, 1, 0.3, 1), and respect reduced motion.",
+      "**Do** mark aged content with the hatch square, not a colour."
+    ],
+    "donts": [
+      "**Don't** introduce cards, fills or shadows to group content; the only depth is a 1px ring on focused or invalid inputs.",
+      "**Don't** use green for decoration, headings, links at rest or a primary button fill.",
+      "**Don't** round corners or use circular markers, dots or pills.",
+      "**Don't** set tracked uppercase labels or small text above headings; the gutter number is the section's only label.",
+      "**Don't** use text glyphs or icon fonts for arrows; use the authored SVG set.",
+      "**Don't** hide content behind scroll reveals; the only ambient motion is the Now LED's breath.",
+      "**Don't** stretch prose past 40rem or lists past 44rem to fill the frame."
+    ]
+  }
+}

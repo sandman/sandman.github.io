@@ -1,263 +1,134 @@
 ---
-import { TextSection, FeatureCard, Button, ThreeColumnTextSection } from '@components/odyssey-theme';
-import Layout from '../layouts/Page.astro';
-import HeroSection from '../components/sections/heros/HeroSection.astro';
-import OrganizationSchema from '../components/schema/OrganizationSchema.astro';
-import ServiceSchema from '../components/schema/ServiceSchema.astro';
-import FAQSchema from '../components/schema/FAQSchema.astro';
-import BreadcrumbSchema from '../components/schema/BreadcrumbSchema.astro';
+import Base from '../layouts/Base.astro';
+import Section from '../components/Section.astro';
+import RecordRow from '../components/RecordRow.astro';
+import EnquiryForm from '../components/EnquiryForm.astro';
+import Icon from '../components/Icon.astro';
+import { capabilities, faqs } from '../data/site';
+import { breadcrumbNode, serviceNode, webPageNode } from '../lib/schema';
+
+const description =
+	'Work with Sandip Gangakhedkar: AI systems designed and shipped, fractional CTO and CPO leadership for founders, technical due diligence, and speaking. London-based, working with teams worldwide.';
 
 const seo = {
-	title: 'Fractional CTO & CPO Services London | Technology & Product Leadership',
-	description: 'Hire a fractional CTO or CPO in London. Strategic technology leadership, product management, team scaling, and technical due diligence for startups and growth companies. Flexible engagement models.',
+	title: 'Work with me: AI systems, fractional CTO and CPO',
+	description,
+	schema: [
+		webPageNode({ path: '/services/', name: 'Work with me', description }),
+		serviceNode(),
+		breadcrumbNode([{ name: 'Services', path: '/services/' }]),
+	],
 };
 ---
 
-<Layout {seo}>
-	<OrganizationSchema />
-	<ServiceSchema />
-	<FAQSchema />
-	<BreadcrumbSchema items={[{ name: "Services", url: "/services" }]} />
-	<HeroSection>
-		<div slot="text-container">
-			<h2>Fractional & Interim CTO & CPO Services</h2>
-			<p>
-				Strategic technology and product leadership for startups and growth companies.
+<Base seo={seo}>
+	<Section id="intro" num="01" title="Work with me." as="h1">
+		<div class="opener">
+			<p class="lede">
+				I partner with founders and leadership teams to close the gap between business strategy and execution.
 			</p>
+			<div class="copy">
+				<p>
+					Depending on the situation, I step in to fix an immediate problem or work alongside your team to build lasting
+					capability. 
+				</p>
+			</div>
+			<nav class="actions" aria-label="On this page">
+				<a class="link" href="#founders">Founders and scale-ups<Icon name="down" /></a>
+				<a class="link" href="#ai">Companies adopting AI<Icon name="down" /></a>
+				<a class="link" href="#due-diligence">Due diligence<Icon name="down" /></a>
+				<a class="link" href="#speaking">Speaking and press<Icon name="down" /></a>
+			</nav>
 		</div>
-		<div slot="image-container">
-			<div class="services-hero-graphic">
-				<div class="service-icon">⚡</div>
-				<div class="service-icon">🎯</div>
-				<div class="service-icon">📈</div>
+	</Section>
+
+	<Section id="founders" num="02" title="Founders and scale-ups.">
+		<div class="stack-lg">
+			<p class="copy">
+				Fractional CTO and CPO work for companies that need senior technology and product leadership from someone who
+				stays hands-on.
+			</p>
+			<ul class="rows rows--compact">
+				{capabilities.founders.map((item) => <RecordRow item={item} />)}
+			</ul>
+			<div class="actions">
+				<a class="btn" href="/contact/?topic=founder">Enquire as a founder<Icon name="right" /></a>
 			</div>
 		</div>
-	</HeroSection>
-	
-	<TextSection>
-		<narrow>
-		<h2>How I help</h2>
-		<p>
-			I partner with founders and leadership teams to bridge the gap between business strategy and product execution. 
-			My approach combines extensive technical and execution experience with cross-functional understanding to help companies grow and flourish.
-			Depending on the situation, I can step in to fix immediate challenges or work alongside your team to build long-term capabilities. 
-			I am not a "coach" - I roll up my sleeves and get things done.
-		</p>
-		</narrow>
-	</TextSection>
+	</Section>
 
-	<ThreeColumnTextSection>
-		<div slot="column-1-body">
-			<h3>Technology Leadership</h3>
-			<p>
-				<ul>
-					<li><strong>Technology Strategy & Roadmap:</strong> Align tech initiatives with business goals and market opportunities</li>
-					<li><strong>Architecture & Scalability Planning:</strong> Design systems that grow with your business</li>
-					<li><strong>Technical Due Diligence:</strong> Support fundraising and M&A activities with comprehensive tech assessments</li>
-					<li><strong>Innovation & R&D Direction:</strong> Identify areas to develop IP and/or defensibility and make it happen</li>
-				</ul>
+	<Section id="ai" num="03" title="Companies adopting AI.">
+		<div class="stack-lg">
+			<p class="copy">
+				For businesses that need an AI system designed, evaluated and shipped, not a strategy deck.
 			</p>
+			<ul class="rows rows--compact">
+				{capabilities.ai.map((item) => <RecordRow item={item} />)}
+			</ul>
+			<div class="actions">
+				<a class="btn" href="/contact/?topic=ai">Talk about an AI system<Icon name="right" /></a>
+			</div>
 		</div>
-		<!-- <Button slot="column-1-cta">Learn More</Button> -->
-		<div slot="column-2-body">
-			<h3>Product Strategy & Execution</h3>
-			<p>
-				<ul>
-					<li><strong>Product-Market Fit:</strong> Define and validate product strategy, MVP development, and go-to-market</li>
-					<li><strong>Product Roadmap & Prioritization:</strong> Balance feature development with technical debt and scalability</li>
-					<li><strong>User Experience Strategy:</strong> Design customer-centric products that drive engagement and growth</li>
-					<li><strong>Data-Driven Decision Making:</strong> Implement analytics and metrics to optimize product performance</li>
-				</ul>
+	</Section>
+
+	<Section id="due-diligence" num="04" title="Technical due diligence.">
+		<div class="stack-lg">
+			<div class="copy">
+				<p>
+					Technology assessments that support fundraising and M&amp;A: architecture, code quality, team capability and
+					technical risk.
+				</p>
+				<p>
+					For founders preparing to raise, it means walking into investor conversations with a clear, honest account of
+					the technology and a roadmap that lines up with business milestones.
+				</p>
+			</div>
+			<div class="actions">
+				<a class="link" href="/contact/?topic=founder">Ask about due diligence<Icon name="right" /></a>
+			</div>
+		</div>
+	</Section>
+
+	<Section id="speaking" num="05" title="Speaking and press.">
+		<div class="stack-lg">
+			<p class="copy">
+				Talks, panels, podcasts and interviews. These are the subjects I can speak to from first-hand experience.
 			</p>
+			<ul class="rows rows--compact">
+				{capabilities.speaking.map((item) => <RecordRow item={item} />)}
+			</ul>
+			<div class="actions">
+				<a class="btn" href="/contact/?topic=speaking">Send a speaking or press request<Icon name="right" /></a>
+			</div>
 		</div>
-		<!-- <Button slot="column-2-cta" outlined>Learn More</Button> -->
-		<div slot="column-3-body">
-			<h3>Team Building & Operations</h3>
-			<p>
-				<ul>
-					<li><strong>Team Scaling:</strong> Hire, onboard, and structure high-performing engineering and product teams</li>
-					<li><strong>Process Optimization:</strong> Implement agile methodologies, DevOps, and quality assurance practices</li>
-					<li><strong>Culture & Leadership:</strong> Foster innovation, collaboration, and technical excellence</li>
-					<li><strong>Performance Management:</strong> Set goals, track progress, and develop team capabilities</li>
-				</ul>
-			</p>
-		</div>
-		<!-- <Button slot="column-3-cta">Learn More</Button> -->
-	</ThreeColumnTextSection>
+	</Section>
 
-	<TextSection>
-		<narrow>
-		<h2>Working with me</h2>
-		<p>
-			I offer flexible engagement models designed to meet the unique needs and budgets of different companies. 
-			Each engagement is customized based on your specific challenges, growth stage, and objectives.
-		</p>
-		
-		<h3>Strategic Advisory</h3>
-		<h4><i>A few hours/month</i></h4>
-		<p>
-			Perfect for early-stage startups or companies with existing tech leadership who need strategic guidance. 
-			Includes monthly strategy sessions, roadmap reviews, and on-demand consultation for critical decisions.
-		</p>
-		
-		<h3>Tactical Leadership</h3>
-		<h4><i>20-30 hours/month</i></h4>
-		<p>
-			Ideal for growth companies scaling their teams and technology. Hands-on involvement in team management, 
-			product development, and operational improvements. Regular team meetings, process implementation and reviews.
-		</p>
-		
-		<h3>Executive Partnership</h3>
-		<h4><i>2-3 days/week</i></h4>
-		<p>
-			Comprehensive technology and product leadership for companies without a full-time CTO/CPO. 
-			Deep involvement in strategic planning, team leadership, investor relations, and day-to-day operations based on the requirements.
-		</p>
-		</narrow>
-	</TextSection>
-
-	<!-- <TextSection>
-		<narrow>
-		<h2>Why Choose Fractional Leadership?</h2>
-		
-		<h3>Cost-Effective Expertise</h3>
-		<p>
-			Get senior-level technology and product leadership at a fraction of the cost of a full-time hire. 
-			Perfect for startups and growth companies managing budget constraints while scaling.
-		</p>
-		
-		<h3>Immediate Impact</h3>
-		<p>
-			No lengthy onboarding or cultural fit concerns. I bring deep industry experience and can contribute 
-			from day one, helping you avoid common pitfalls and accelerate growth.
-		</p>
-		
-		<h3>Flexibility & Scalability</h3>
-		<p>
-			Adjust the level of engagement as your needs change. Start with strategic advisory and scale up to 
-			full leadership as your company grows, or transition to hiring a full-time executive when ready.
-		</p>
-		
-		<h3>External Perspective</h3>
-		<p>
-			Benefit from cross-industry insights and best practices. I bring experience from multiple companies, 
-			helping you learn from others' successes and mistakes.
-		</p>
-		</narrow>
-	</TextSection> -->
-
-	<TextSection>
-		<narrow>
-		<h2>Industries & Expertise</h2>
-		<p>
-			While I work across various industries, I have first-hand experience in the following:
-		</p>
-		<ul>
-			<li><strong>Autonomy & Hardware:</strong> Autonomous systems, IoT, robotics, and complex multi-domain engineering challenges</li>
-			<li><strong>Mobility & Transportation:</strong> Connected vehicles, logistics, and smart transportation systems</li>
-			<li><strong>B2B SaaS & Platforms:</strong> Enterprise software, APIs, and scalable platform architectures</li>
-			<li><strong>Data & Analytics:</strong> Location intelligence, real-time processing, and machine learning applications</li>
-			<li><strong>AI-native products:</strong> Agentic AI workflows, AI solution architectures, Evals etc.</li>
+	<!-- <Section id="experience" num="06" title="First-hand experience.">
+		<ul class="rows rows--compact">
+			{capabilities.experience.map((item) => <RecordRow item={item} />)}
 		</ul>
-		</narrow>
-	</TextSection>
+	</Section> -->
 
-	<TextSection>
-		<div class="cta-section">
-			<h2>Get in touch</h2>
-			<p>
-				When you're facing complex technical or product decisions, expanding your team, or gearing up for investment, 
-				I bring grounded experience and work as part of your team to move things forward.
- </p>
-			<p>
-				Schedule a free discovery call to learn more.
-			</p>
-			<a href="/contact" class="cta-button">Reach out</a>
+	<!-- <Section id="faq" num="07" title="Questions.">
+		<div class="faq">
+			{
+				faqs.map((faq) => (
+					<details>
+						<summary>
+							<span>{faq.question}</span>
+							<Icon name="plus" />
+						</summary>
+						<p class="faq__a">{faq.answer}</p>
+					</details>
+				))
+			}
 		</div>
-	</TextSection>
-</Layout>
+	</Section> -->
 
-<style>
-	.services-hero-graphic {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		gap: 2rem;
-		padding: 2rem;
-	}
-	
-	.service-icon {
-		font-size: 4rem;
-		opacity: 0.8;
-		animation: float 3s ease-in-out infinite;
-	}
-	
-	.service-icon:nth-child(2) {
-		animation-delay: -1s;
-	}
-	
-	.service-icon:nth-child(3) {
-		animation-delay: -2s;
-	}
-	
-	@keyframes float {
-		0%, 100% { transform: translateY(0px); }
-		50% { transform: translateY(-10px); }
-	}
-	
-	.services-grid {
-		display: grid;
-		grid-template-columns: 1fr;
-		gap: 2rem;
-		margin: 3rem auto;
-		max-width: 1200px;
-		padding: 0 1rem;
-	}
-	
-	@media (min-width: 768px) {
-		.services-grid {
-			grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-		}
-	}
-	
-	.services-grid ul {
-		list-style: none;
-		padding: 0;
-		margin: 0;
-	}
-	
-	.services-grid li {
-		margin-bottom: 1rem;
-		padding-left: 0;
-	}
-	
-	.services-grid strong {
-		color: var(--theme-primary);
-		display: block;
-		margin-bottom: 0.25rem;
-	}
-	
-	.cta-section {
-		text-align: center;
-		padding: 3rem 2rem;
-		background-color: var(--theme-surface-1);
-		border-radius: var(--theme-shape-radius);
-		margin: 2rem 0;
-	}
-	
-	.cta-button {
-		display: inline-block;
-		background-color: var(--theme-primary);
-		color: white;
-		padding: 1rem 2rem;
-		border-radius: var(--theme-shape-radius);
-		text-decoration: none;
-		font-weight: bold;
-		margin-top: 1rem;
-		transition: background-color 0.3s ease;
-	}
-	
-	.cta-button:hover {
-		background-color: var(--theme-primary-hover);
-	}
-</style>
+	<Section id="contact" num="06" title="Get in touch.">
+		<div class="stack-lg">
+			<p class="copy">Tell me what you're building and where you could use help. A couple of paragraphs is enough.</p>
+			<EnquiryForm idPrefix="services" />
+		</div>
+	</Section>
+</Base>

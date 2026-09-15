@@ -1,0 +1,31 @@
+---
+import { formatDate, isAged, isoDate, postHref, readingMinutes, type Post } from '../lib/posts';
+
+export interface Props {
+	posts: Post[];
+	descriptions?: boolean;
+}
+
+const { posts, descriptions = false } = Astro.props;
+---
+
+<ul class="posts">
+	{
+		posts.map((post) => (
+			<li class="post">
+				<a href={postHref(post)}>
+					<span class="post__date">
+						{isAged(post.data.publishDate) && <span class="hatch" aria-hidden="true" />}
+						<time datetime={isoDate(post.data.publishDate)}>{formatDate(post.data.publishDate)}</time>
+						{isAged(post.data.publishDate) && <span class="visually-hidden">(older article)</span>}
+					</span>
+					<span class="post__main">
+						<span class="post__title">{post.data.title}</span>
+						{descriptions && <span class="post__desc">{post.data.description}</span>}
+					</span>
+					<span class="post__time">{readingMinutes(post.body)} min read</span>
+				</a>
+			</li>
+		))
+	}
+</ul>

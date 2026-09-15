@@ -1,26 +1,84 @@
 ---
-import { SkipLink } from '@components/odyssey-theme';
-import BaseHead from '../components/head/BaseHead.astro';
-import type { Props as BaseHeadProps } from '../components/head/BaseHead.astro';
+import '@fontsource-variable/martian-mono/wdth.css';
+import '@fontsource-variable/atkinson-hyperlegible-next/wght.css';
+import '@fontsource-variable/atkinson-hyperlegible-next/wght-italic.css';
+import '../styles/site.css';
+
+import Head from '../components/Head.astro';
+import type { Props as HeadProps } from '../components/Head.astro';
+import Masthead from '../components/Masthead.astro';
+import Footer from '../components/Footer.astro';
 
 export interface Props {
-	seo?: BaseHeadProps;
+	seo?: HeadProps;
 }
 
-const { seo } = Astro.props;
+const { seo = {} } = Astro.props;
 ---
 
-<html lang="en">
+<!doctype html>
+<html lang="en-GB">
 	<head>
-		<BaseHead {...seo} />
+		<Head {...seo} />
 	</head>
 	<body>
-		<SkipLink />
-    <slot name="announcement-bar" />
-		<slot name="header" />
-		<main id="content">
-			<slot />
-		</main>
-		<slot name="footer" />
+		<a class="skip-link" href="#content">Skip to content</a>
+		<div class="frame">
+			<Masthead />
+			<main id="content">
+				<slot />
+			</main>
+			<Footer />
+		</div>
+		<p class="visually-hidden" aria-live="polite" data-announcer></p>
+
+		<script>
+			const numbers = [...document.querySelectorAll<HTMLAnchorElement>('.sec__num')];
+			const sections = numbers.map((number) => number.closest<HTMLElement>('[data-sec]'));
+			const announcer = document.querySelector<HTMLElement>('[data-announcer]');
+
+			// Light the gutter number of the section currently being read.
+			if (numbers.length) {
+				let queued = false;
+				const update = () => {
+					queued = false;
+					const line = window.innerHeight * 0.35;
+					let current = 0;
+					sections.forEach((section, index) => {
+						if (section && section.getBoundingClientRect().top <= line) current = index;
+					});
+					const atEnd = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+					if (atEnd) current = numbers.length - 1;
+					numbers.forEach((number, index) => number.classList.toggle('is-current', index === current));
+				};
+				const queue = () => {
+					if (queued) return;
+					queued = true;
+					requestAnimationFrame(update);
+				};
+				window.addEventListener('scroll', queue, { passive: true });
+				window.addEventListener('resize', queue);
+				update();
+			}
+
+			// Section numbers copy their link while still jumping to the section.
+			numbers.forEach((number) => {
+				number.addEventListener('click', async () => {
+					if (!navigator.clipboard) return;
+					const href = new URL(number.getAttribute('href') ?? '', window.location.href).toString();
+					try {
+						await navigator.clipboard.writeText(href);
+						const original = number.textContent;
+						number.textContent = 'Copied';
+						if (announcer) announcer.textContent = 'Section link copied';
+						window.setTimeout(() => {
+							number.textContent = original;
+						}, 1400);
+					} catch {
+						// Clipboard can be blocked; the anchor jump still works.
+					}
+				});
+			});
+		</script>
 	</body>
 </html>

@@ -1,70 +1,53 @@
 ---
-import Layout from '../layouts/Page.astro';
-import { Container, Button, FormInput, FormTextarea } from '@components/odyssey-theme';
-import BreadcrumbSchema from '../components/schema/BreadcrumbSchema.astro';
+import Base from '../layouts/Base.astro';
+import Section from '../components/Section.astro';
+import EnquiryForm from '../components/EnquiryForm.astro';
+import { site, socials } from '../data/site';
+import { breadcrumbNode, webPageNode } from '../lib/schema';
+
+const description =
+	'Contact Sandip Gangakhedkar about an AI system, fractional CTO or CPO leadership, technical due diligence, or a speaking or press request.';
+
+const direct = socials.filter((social) => ['LinkedIn', 'X (Twitter)'].includes(social.label));
 
 const seo = {
-	title: 'Contact Sandip Gangakhedkar | Hire Fractional CTO/CPO London',
-	description: 'Schedule a free discovery call with Sandip Gangakhedkar. Discuss your technology and product leadership needs. Fractional CTO and CPO services for startups and growth companies.',
+	title: 'Get in touch',
+	description,
+	schema: [
+		webPageNode({ path: '/contact/', name: 'Get in touch', description, type: 'ContactPage' }),
+		breadcrumbNode([{ name: 'Contact', path: '/contact/' }]),
+	],
 };
 ---
 
-<Layout seo={seo}>
-	<BreadcrumbSchema items={[{ name: "Contact", url: "/contact" }]} />
-	<Container>
-		<section class="contact-hero__section">
-			<div class="contact-hero__text-section">
-				<h1>Get in touch</h1>
-				<p>
-					Feel free to reach out for any inquiries, collaborations, or just to say hello! 
-				</p>
+<Base seo={seo}>
+	<Section id="intro" num="01" title="Get in touch." as="h1">
+		<div class="split">
+			<div class="stack-lg">
+				<div class="copy">
+					<p class="lede">Tell me what you're building and where you could use help.</p>
+					<p>A couple of paragraphs is enough. You're also welcome to send a link, ask a question, or just say hello.</p>
+				</div>
+				<EnquiryForm idPrefix="contact" />
 			</div>
-			<div class="col-2__container">
-				<form action="https://formspree.io/f/meozezno" method="POST" class="contact-form">
-					<input type="hidden" name="_next" value="https://sandip.live/contact-thank-you">
-					<input type="hidden" name="_subject" value="New website contact form message">
-					<FormInput type="text" label="Name" name="name" placeholder="Your Name" required />
-					<FormInput type="email" label="Email" name="email" placeholder="your@email.com" required />
-					<FormTextarea label="Message" name="message" placeholder="Your message here..." required />
-					<Button type="submit">Send Message</Button>
-				</form>
-			</div>
-		</section>
-	</Container>
-</Layout>
-
-<style>
-	.contact-hero__section {
-		margin: var(--section-margin) auto;
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		min-height: calc(90vh - var(--navbar-height));
-		gap: 3rem;
-	}
-	.contact-hero__text-section {
-		padding: 2rem;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		background-color: var(--theme-surface-1);
-		border-radius: var(--theme-shape-radius);
-	}
-	.col-2__container {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-	}
-	.contact-form {
-		display: grid;
-		grid-template-columns: 1fr;
-		gap: 1rem;
-		padding: 2rem;
-		background-color: var(--theme-surface-1);
-		border-radius: var(--theme-shape-radius);
-	}
-	@media (max-width: 768px) {
-		.contact-hero__section {
-			grid-template-columns: 1fr;
-		}
-	}
-</style>
+			<dl class="aside">
+				<div class="aside__row">
+					<dt>Based in</dt>
+					<dd>{site.locality}, {site.countryName}. Working with teams worldwide, remotely or in person.</dd>
+				</div>
+				<div class="aside__row">
+					<dt>Elsewhere</dt>
+					<dd>
+						{direct.map((social, index) => (
+							<Fragment>{index > 0 ? ', ' : ''}<a href={social.href} rel="me noopener">{social.label}</a></Fragment>
+						))}
+					</dd>
+				</div>
+				<div class="aside__row">
+					<dt>Before you write</dt>
+					<dd><a href="/services/">How I work with teams</a> and <a href="/projects/">what I've built</a>.</dd>
+				</div>
+			</dl>
+		</div>
+	</Section>
+</Base>

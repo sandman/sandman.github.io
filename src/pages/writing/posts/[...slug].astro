@@ -1,30 +1,159 @@
 ---
-import { getCollection, type CollectionEntry } from 'astro:content';
-import Layout from '../../../layouts/Post.astro';
+import Base from '../../../layouts/Base.astro';
+import Section from '../../../components/Section.astro';
+import PostList from '../../../components/PostList.astro';
+import Icon from '../../../components/Icon.astro';
+import { site } from '../../../data/site';
+import {
+	formatLongDate,
+	getPosts,
+	isAged,
+	isoDate,
+	readingMinutes,
+	relatedPosts,
+	slugify,
+	type Post,
+} from '../../../lib/posts';
+import { articleNode, breadcrumbNode, webPageNode } from '../../../lib/schema';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog');
-  return posts.map((post) => ({
-    params: { slug: post.slug },
-    props: post,
-  }));
+	const posts = await getPosts();
+	return posts.map((post) => ({ params: { slug: post.slug }, props: { post } }));
 }
 
-type Props = CollectionEntry<'blog'>;
+interface Props {
+	post: Post;
+}
 
-const post = Astro.props;
-const { Content } = await post.render();
+const { post } = Astro.props;
+const { Content, headings } = await post.render();
+const all = await getPosts();
+const related = relatedPosts(post, all);
 
-// Structure content data for Post.astro layout
-const content = {
-  title: post.data.title,
-  description: post.data.description,
-  publishDate: post.data.publishDate,
-  tags: post.data.tags,
-  featuredImage: post.data.featuredImage,
+const depths = headings.map((heading) => heading.depth);
+const topDepth = depths.length ? Math.min(...depths) : 0;
+const contents = headings.filter((heading) => heading.depth === topDepth);
+const pad = (value: number) => String(value).padStart(2, '0');
+
+const { title, description, publishDate, updatedDate, tags, originalUrl } = post.data;
+const originalHost = originalUrl
+	? new URL(originalUrl).host.includes('linkedin.com')
+		? 'LinkedIn'
+		: new URL(originalUrl).host.replace(/^www\./, '')
+	: undefined;
+const aged = isAged(publishDate);
+const path = `/writing/posts/${post.slug}/`;
+
+const seo = {
+	title,
+	description,
+	type: 'article' as const,
+	published: publishDate,
+	modified: updatedDate ?? publishDate,
+	tags,
+	image: post.data.featuredImage,
+	schema: [
+		webPageNode({ path, name: title, description }),
+		articleNode(post),
+		breadcrumbNode([
+			{ name: 'Writing', path: '/writing/' },
+			{ name: title, path },
+		]),
+	],
 };
 ---
 
-<Layout {content}>
-  <Content />
-</Layout>
+<Base seo={seo}>
+	<article class="sec" id="article" aria-labelledby="article-title" data-sec>
+		<a class="sec__num" href="#article" aria-label={`Link to the top of ${title}`}>01</a>
+		<h1 id="article-title" class="sec__title display display--article">{title}</h1>
+		<div class="sec__body">
+			<p class="lede">{description}</p>
+			<p class="article-meta">
+				<span>By <a href="/about/">{site.name}</a></span>
+				<time datetime={isoDate(publishDate)}>{formatLongDate(publishDate)}</time>
+				{
+					updatedDate && (
+						<span>
+							Updated <time datetime={isoDate(updatedDate)}>{formatLongDate(updatedDate)}</time>
+						</span>
+					)
+				}
+				<span>{readingMinutes(post.body)} min read</span>
+				{
+					originalUrl && (
+						<span>
+							Also on{' '}
+							<a href={originalUrl} rel="noopener">
+								{originalHost}
+							</a>
+						</span>
+					)
+				}
+			</p>
+			{
+				aged && (
+					<p class="aged">
+						<span class="hatch" aria-hidden="true" />
+						<span>Written in {publishDate.getUTCFullYear()}. Some details may have aged since.</span>
+					</p>
+				)
+			}
+			{
+				contents.length >= 3 && (
+					<nav class="toc" aria-labelledby="toc-title">
+						<h2 id="toc-title">Contents</h2>
+						<ol>
+							{contents.map((heading, index) => (
+								<li>
+									<a href={`#${heading.slug}`}>
+										<span class="toc__n">{pad(index + 1)}</span>
+										<span>{heading.text}</span>
+									</a>
+								</li>
+							))}
+						</ol>
+					</nav>
+				)
+			}
+			<div class="prose article-body" data-top={topDepth}>
+				<Content />
+			</div>
+			{
+				tags.length > 0 && (
+					<ul class="tags article-tags" aria-label="Topics">
+						{tags.map((tag) => (
+							<li>
+								<a class="tag" href={`/writing/tags/${slugify(tag)}/`}>
+									{tag}
+								</a>
+							</li>
+						))}
+					</ul>
+				)
+			}
+		</div>
+	</article>
+
+	<Section id="related" num="02" title="Keep reading.">
+		<div class="stack-lg">
+			<PostList posts={related} />
+			<div class="actions">
+				<a class="link" href="/writing/">All writing<Icon name="right" /></a>
+			</div>
+		</div>
+	</Section>
+
+	<Section id="author" num="03" title="About the author.">
+		<div class="stack-lg">
+			<p class="copy">
+				{site.name} is a technologist and founder in London. He designs and ships AI systems with founders and teams,
+				after a decade of research at Bell Labs, Nokia and Huawei and co-founding Imperium Drive and Fetch.
+			</p>
+			<div class="actions">
+				<a class="btn" href="/services/">Work with me<Icon name="right" /></a>
+				<a class="link" href="/contact/">Get in touch<Icon name="right" /></a>
+			</div>
+		</div>
+	</Section>
+</Base>

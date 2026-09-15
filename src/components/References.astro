@@ -1,0 +1,35 @@
+---
+import { references, type RefKey } from '../data/site';
+import { formatLongDate } from '../lib/posts';
+import Icon from './Icon.astro';
+
+export interface Props {
+	only?: RefKey[];
+}
+
+const { only } = Astro.props;
+const items = only ? references.filter((ref) => only.includes(ref.key)) : references;
+---
+
+<ol class="refs">
+	{
+		items.map((ref) => (
+			<li id={`ref-${ref.key.toLowerCase()}`}>
+				<span class="refs__key">[{ref.key}]</span>
+				<span>
+					{ref.source}.{' '}
+					{ref.title && <>&ldquo;{ref.title}.&rdquo; </>}
+					{ref.date && (
+						<>
+							<time datetime={ref.date}>{formatLongDate(new Date(ref.date))}</time>.{' '}
+						</>
+					)}
+					<a class="refs__src" href={ref.href} rel="noopener">
+						{ref.hrefLabel}
+						<Icon name="up-right" />
+					</a>
+				</span>
+			</li>
+		))
+	}
+</ol>

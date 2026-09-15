@@ -1,0 +1,55 @@
+---
+import type { RecordItem } from '../data/site';
+import Cite from './Cite.astro';
+import Icon from './Icon.astro';
+
+export interface Props {
+	item: RecordItem;
+	headingLevel?: 'h3' | 'h4';
+}
+
+const { item, headingLevel = 'h3' } = Astro.props;
+const Heading = headingLevel;
+const external = item.link ? /^https?:\/\//.test(item.link.href) : false;
+const hasOut = Boolean(item.out || item.cites?.length);
+---
+
+<li class:list={['row', { 'row--now': item.now }]} id={`rec-${item.id}`}>
+	<div class="row__lead">
+		<Heading class="row__title">{item.title}</Heading>
+		{item.kind && <p class="row__kind">{item.kind}</p>}
+		{item.when && <p class="row__when">{item.when}</p>}
+		{
+			item.now && (
+				<p class="row__now">
+					<span class="led led--live" aria-hidden="true" />
+					Current
+				</p>
+			)
+		}
+	</div>
+	<div class="row__body">
+		<p>{item.body}</p>
+		{
+			hasOut && (
+				<p class="row__out">
+					{item.out}
+					{item.cites?.map((key) => (
+						<>
+							{' '}
+							<Cite refKey={key} />
+						</>
+					))}
+				</p>
+			)
+		}
+		{
+			item.link && (
+				<a class="row__go" href={item.link.href} rel={external ? 'noopener' : undefined}>
+					{item.link.label}
+					<Icon name={external ? 'up-right' : 'right'} />
+				</a>
+			)
+		}
+	</div>
+</li>

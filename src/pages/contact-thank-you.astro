@@ -1,56 +1,26 @@
 ---
-import Layout from '../layouts/Page.astro';
-import { Container } from '@components/odyssey-theme';
+import Base from '../layouts/Base.astro';
+import Section from '../components/Section.astro';
+import Icon from '../components/Icon.astro';
 
 const seo = {
-	title: 'Thank You | Message Sent Successfully',
-	description: 'Thank you, your message has been sent successfully.',
+	title: 'Message sent',
+	description: 'Your message to Sandip Gangakhedkar has been sent.',
+	noindex: true,
 };
 ---
 
-<Layout seo={seo}>
-	<Container>
-		<section class="thank-you__section">
-			<div class="thank-you__content">
-				<h1>Thank you for your message!</h1>
-				<p>
-					Your message has been sent successfully. I'll get back to you as soon as possible.
-				</p>
-				<p>
-					<a href="/">← Return to Home</a>
-				</p>
+<Base seo={seo}>
+	<Section id="sent" num="01" title="Message sent." as="h1">
+		<div class="opener">
+			<p class="status">
+				<span class="status__label"><span class="led" aria-hidden="true"></span>Received</span>
+				<span>Thanks for writing. I'll get back to you as soon as possible.</span>
+			</p>
+			<div class="actions">
+				<a class="btn" href="/writing/">Read the writing<Icon name="right" /></a>
+				<a class="link" href="/">Back to the home page<Icon name="right" /></a>
 			</div>
-		</section>
-	</Container>
-</Layout>
-
-<style>
-	.thank-you__section {
-		margin: var(--section-margin) auto;
-		min-height: calc(70vh - var(--navbar-height));
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-	.thank-you__content {
-		padding: 3rem;
-		background-color: var(--theme-surface-1);
-		border-radius: var(--theme-shape-radius);
-		text-align: center;
-		max-width: 500px;
-	}
-	.thank-you__content h1 {
-		color: var(--theme-primary);
-		margin-bottom: 1rem;
-	}
-	.thank-you__content p {
-		margin-bottom: 1rem;
-	}
-	.thank-you__content a {
-		color: var(--theme-primary);
-		text-decoration: none;
-	}
-	.thank-you__content a:hover {
-		text-decoration: underline;
-	}
-</style>
+		</div>
+	</Section>
+</Base>

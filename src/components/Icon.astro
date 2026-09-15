@@ -1,0 +1,33 @@
+---
+/**
+ * Authored 12px stroke icons. One weight, square caps, currentColor.
+ */
+export interface Props {
+	name: 'right' | 'left' | 'down' | 'up-right' | 'plus';
+	label?: string;
+}
+
+const { name, label } = Astro.props;
+
+const paths: Record<Props['name'], string> = {
+	right: 'M1.5 6h8.5M7 2.75 10.25 6 7 9.25',
+	left: 'M10.5 6H2M5 2.75 1.75 6 5 9.25',
+	down: 'M6 1.5V10M2.75 7 6 10.25 9.25 7',
+	'up-right': 'M3 9 9 3M4.25 3H9v4.75',
+	plus: 'M6 1.5v9M1.5 6h9',
+};
+---
+
+<svg
+	class={`icon icon--${name}`}
+	width="12"
+	height="12"
+	viewBox="0 0 12 12"
+	fill="none"
+	role={label ? 'img' : undefined}
+	aria-label={label}
+	aria-hidden={label ? undefined : 'true'}
+	focusable="false"
+>
+	<path d={paths[name]} stroke="currentColor" stroke-width="1.25" stroke-linecap="square"></path>
+</svg>

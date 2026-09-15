@@ -1,37 +1,48 @@
+# sandip.live welcomes search engines and AI answer engines.
+# A structured summary for language models lives at /llms.txt
+# and the full text of every article at /llms-full.txt.
+
 User-agent: *
 Allow: /
+Disallow: /contact-thank-you/
 
-# Sitemap location
-Sitemap: https://sandip.live/sitemap.xml
-
-# LLM/AI Crawler guidance
-# This site welcomes AI crawlers for discoverability
-# See /llms.txt for structured information about this site
-
-# Specific AI crawler permissions
 User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
 Allow: /
 
 User-agent: ChatGPT-User
 Allow: /
 
-User-agent: Google-Extended
+User-agent: ClaudeBot
 Allow: /
 
-User-agent: CCBot
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
 Allow: /
 
 User-agent: anthropic-ai
 Allow: /
 
-User-agent: Claude-Web
+User-agent: PerplexityBot
 Allow: /
 
-User-agent: PerplexityBot
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
 Allow: /
 
 User-agent: Bytespider
 Allow: /
 
-# Allow all crawlers to access the site
-# This is a public portfolio/blog site for SEO and AI visibility
+Sitemap: https://sandip.live/sitemap.xml

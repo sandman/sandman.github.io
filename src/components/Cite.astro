@@ -1,0 +1,11 @@
+---
+import type { RefKey } from '../data/site';
+
+export interface Props {
+	refKey: RefKey;
+}
+
+const { refKey } = Astro.props;
+---
+
+<a class="cite" href={`#ref-${refKey.toLowerCase()}`} aria-label={`Source: ${refKey}`}>[{refKey}]</a>

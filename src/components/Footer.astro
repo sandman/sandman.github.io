@@ -1,0 +1,26 @@
+---
+import { site, socials } from '../data/site';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="foot">
+	<p class="foot__id">
+		<span class="foot__name">{site.name}</span>
+		<span>{site.locality}, working with teams worldwide</span>
+		<span>&copy; {year}</span>
+	</p>
+	<ul class="foot__links" aria-label="Elsewhere">
+		{
+			socials.map((social) => (
+				<li>
+					<a href={social.href} rel="me noopener">
+						{social.label}
+					</a>
+				</li>
+			))
+		}
+		<li><a href="/writing/rss.xml">RSS</a></li>
+		<li><a href="/llms.txt">llms.txt</a></li>
+	</ul>
+</footer>

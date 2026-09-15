@@ -1,0 +1,43 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Section from '../../../components/Section.astro';
+import Icon from '../../../components/Icon.astro';
+import { site } from '../../../data/site';
+import { collectTags, getPosts } from '../../../lib/posts';
+import { breadcrumbNode } from '../../../lib/schema';
+
+const tags = collectTags(await getPosts());
+
+const seo = {
+	title: `Topics | ${site.blogName}`,
+	description: `Every topic covered in ${site.blogName}, the writing of ${site.name}.`,
+	schema: [
+		breadcrumbNode([
+			{ name: 'Writing', path: '/writing/' },
+			{ name: 'Topics', path: '/writing/tags/' },
+		]),
+	],
+};
+---
+
+<Base seo={seo}>
+	<Section id="intro" num="01" title="Topics." as="h1">
+		<div class="opener">
+			<ul class="tags">
+				{
+					tags.map((tag) => (
+						<li>
+							<a class="tag" href={`/writing/tags/${tag.slug}/`}>
+								{tag.name}
+								<span class="tag__count">{tag.count}</span>
+							</a>
+						</li>
+					))
+				}
+			</ul>
+			<div class="actions">
+				<a class="link" href="/writing/">All writing<Icon name="right" /></a>
+			</div>
+		</div>
+	</Section>
+</Base>

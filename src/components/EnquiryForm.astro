@@ -1,0 +1,224 @@
+---
+import { formspree, site, socials, topics } from '../data/site';
+import Icon from './Icon.astro';
+
+export interface Props {
+	idPrefix?: string;
+}
+
+const { idPrefix = 'enquiry' } = Astro.props;
+const first = topics[0];
+const linkedin = socials.find((social) => social.label === 'LinkedIn');
+const id = (name: string) => `${idPrefix}-${name}`;
+---
+
+<form class="form" action={formspree} method="POST" data-enquiry data-fallback={linkedin?.href}>
+	<input type="hidden" name="_next" value={`${site.url}/contact-thank-you/`} />
+	<input type="hidden" name="_subject" value={`Website enquiry: ${first.subject}`} data-subject />
+	<label class="hp" aria-hidden="true">
+		Leave this field empty
+		<input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+	</label>
+
+	<fieldset class="topics">
+		<legend>What is this about? <span class="field__opt">Choose one.</span></legend>
+		{
+			topics.map((topic, index) => (
+				<label class="topic">
+					<input
+						type="radio"
+						name="topic"
+						value={topic.value}
+						checked={index === 0}
+						data-prompt={topic.prompt}
+						data-next={topic.next}
+						data-subject={topic.subject}
+					/>
+					<span>
+						<span class="topic__label">{topic.label}</span>
+						<span class="topic__hint">{topic.hint}</span>
+					</span>
+				</label>
+			))
+		}
+	</fieldset>
+
+	<div class="field">
+		<label class="field__label" for={id('name')}>Name</label>
+		<input
+			class="input"
+			id={id('name')}
+			name="name"
+			type="text"
+			autocomplete="name"
+			required
+			aria-describedby={id('name-error')}
+		/>
+		<p class="field__error" id={id('name-error')}></p>
+	</div>
+
+	<div class="field">
+		<label class="field__label" for={id('email')}>Email</label>
+		<input
+			class="input"
+			id={id('email')}
+			name="email"
+			type="email"
+			inputmode="email"
+			autocomplete="email"
+			spellcheck="false"
+			required
+			aria-describedby={id('email-error')}
+		/>
+		<p class="field__error" id={id('email-error')}></p>
+	</div>
+
+	<div class="field">
+		<label class="field__label" for={id('company')}>
+			Company, event or outlet <span class="field__opt">(optional)</span>
+		</label>
+		<input class="input" id={id('company')} name="company" type="text" autocomplete="organization" />
+	</div>
+
+	<div class="field">
+		<label class="field__label" for={id('message')}>Message</label>
+		<textarea
+			class="input"
+			id={id('message')}
+			name="message"
+			rows="7"
+			required
+			placeholder={first.prompt}
+			aria-describedby={`${id('message-error')} ${id('next')}`}
+			data-message></textarea>
+		<p class="field__error" id={id('message-error')}></p>
+	</div>
+
+	<p class="form__next" id={id('next')}>
+		<span class="led" aria-hidden="true"></span>
+		<span data-next>{first.next}</span>
+	</p>
+
+	<div class="form__foot">
+		<button class="btn" type="submit" data-submit>
+			<span data-submit-label>Send enquiry</span>
+			<Icon name="right" />
+		</button>
+		<p class="form__status" role="status" aria-live="polite" data-status></p>
+	</div>
+</form>
+
+<script>
+	const MISSING: Record<string, string> = {
+		name: 'Add your name so I know who to reply to.',
+		email: 'Add an email address so I can reply.',
+		message: 'Tell me a little about what you need.',
+	};
+	const BAD_EMAIL = "That email address doesn't look complete. Check it for typos.";
+
+	document.querySelectorAll<HTMLFormElement>('form[data-enquiry]').forEach((form) => {
+		form.noValidate = true;
+
+		const subject = form.querySelector<HTMLInputElement>('[data-subject]');
+		const message = form.querySelector<HTMLTextAreaElement>('[data-message]');
+		const next = form.querySelector<HTMLElement>('[data-next]');
+		const status = form.querySelector<HTMLElement>('[data-status]');
+		const submit = form.querySelector<HTMLButtonElement>('[data-submit]');
+		const submitLabel = form.querySelector<HTMLElement>('[data-submit-label]');
+		const required = [...form.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>('.input[required]')];
+
+		const syncTopic = () => {
+			const topic = form.querySelector<HTMLInputElement>('input[name="topic"]:checked');
+			if (!topic) return;
+			if (message) message.placeholder = topic.dataset.prompt ?? '';
+			if (next) next.textContent = topic.dataset.next ?? '';
+			if (subject) subject.value = `Website enquiry: ${topic.dataset.subject ?? ''}`;
+		};
+
+		const requested = new URLSearchParams(window.location.search).get('topic');
+		if (requested) {
+			const match = form.querySelector<HTMLInputElement>(`input[name="topic"][value="${CSS.escape(requested)}"]`);
+			if (match) match.checked = true;
+		}
+		syncTopic();
+
+		form.addEventListener('change', (event) => {
+			if ((event.target as HTMLInputElement).name === 'topic') syncTopic();
+		});
+
+		const check = (field: HTMLInputElement | HTMLTextAreaElement) => {
+			const wrap = field.closest<HTMLElement>('.field');
+			const error = wrap?.querySelector<HTMLElement>('.field__error');
+			if (!wrap || !error) return field.validity.valid;
+			if (field.validity.valid) {
+				wrap.removeAttribute('data-invalid');
+				field.removeAttribute('aria-invalid');
+				error.textContent = '';
+				return true;
+			}
+			wrap.setAttribute('data-invalid', '');
+			field.setAttribute('aria-invalid', 'true');
+			error.textContent = field.validity.typeMismatch ? BAD_EMAIL : MISSING[field.name] ?? 'This field is required.';
+			return false;
+		};
+
+		required.forEach((field) => {
+			field.addEventListener('blur', () => {
+				if (field.value.trim()) check(field);
+			});
+			field.addEventListener('input', () => {
+				if (field.closest('.field')?.hasAttribute('data-invalid')) check(field);
+			});
+		});
+
+		const setBusy = (busy: boolean) => {
+			if (!submit || !submitLabel) return;
+			submit.disabled = busy;
+			submit.toggleAttribute('aria-busy', busy);
+			if (busy) submit.setAttribute('aria-busy', 'true');
+			submitLabel.textContent = busy ? 'Sending' : 'Send enquiry';
+		};
+
+		form.addEventListener('submit', async (event) => {
+			event.preventDefault();
+			if (!status) return;
+
+			const results = required.map(check);
+			const firstInvalid = required[results.indexOf(false)];
+			if (firstInvalid) {
+				status.dataset.state = 'error';
+				status.textContent = 'A couple of fields need attention before this can send.';
+				firstInvalid.focus();
+				return;
+			}
+
+			status.removeAttribute('data-state');
+			status.textContent = 'Sending your enquiry.';
+			setBusy(true);
+
+			try {
+				const response = await fetch(form.action, {
+					method: 'POST',
+					body: new FormData(form),
+					headers: { Accept: 'application/json' },
+				});
+				if (!response.ok) throw new Error(`Form service responded ${response.status}`);
+				window.location.assign('/contact-thank-you/');
+			} catch {
+				setBusy(false);
+				status.dataset.state = 'error';
+				status.replaceChildren("That didn't send. Check your connection and try again");
+				const fallback = form.dataset.fallback;
+				if (fallback) {
+					const link = document.createElement('a');
+					link.href = fallback;
+					link.rel = 'noopener';
+					link.textContent = 'message me on LinkedIn';
+					status.append(', or ', link, '.');
+				} else {
+					status.append('.');
+				}
+			}
+		});
+	});
+</script>

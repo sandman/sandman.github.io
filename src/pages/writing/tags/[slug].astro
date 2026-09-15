@@ -1,58 +1,48 @@
 ---
-import Layout from '../../../layouts/Page.astro'
-import { Container } from '@components/odyssey-theme';
-import {generateTagData} from '../../../utils/helpers.js'
-
+import Base from '../../../layouts/Base.astro';
+import Section from '../../../components/Section.astro';
+import PostList from '../../../components/PostList.astro';
+import Icon from '../../../components/Icon.astro';
+import { site } from '../../../data/site';
+import { collectTags, getPosts, slugify, type Post, type TagSummary } from '../../../lib/posts';
 
 export async function getStaticPaths() {
-  const allPosts = await Astro.glob('../posts/*.mdx');
-  const sortedPosts = allPosts.sort((a, b) => new Date(b.frontmatter.date).valueOf() - new Date(a.frontmatter.date).valueOf());
-  const allCategoriesUnique = new Set();
-  
-  sortedPosts.forEach(post => {
-    post.frontmatter.tags && post.frontmatter.tags.map(tag => {
-      allCategoriesUnique.add(tag);
-    })
-  })
-  
-  const allCategoriesData = generateTagData(allCategoriesUnique);
-   // map through the categories array
-  return allCategoriesData.map((tag) => {
-    // filter the posts that match the given category
-    const posts = sortedPosts.filter((post) => post.frontmatter.tags.includes(tag.title))
-      return {
-      params: {slug: tag.slug}, 
-      props: {
-        tag: tag.title, 
-        posts: posts
-      }
-    };
-  });
+	const posts = await getPosts();
+	return collectTags(posts).map((tag) => ({
+		params: { slug: tag.slug },
+		props: {
+			tag,
+			posts: posts.filter((post) => post.data.tags.some((name) => slugify(name) === tag.slug)),
+		},
+	}));
 }
 
-const {tag, posts} = Astro.props;
-
-const seo ={
-  title: `${tag} | Astro Odyssey`,
+interface Props {
+	tag: TagSummary;
+	posts: Post[];
 }
+
+const { tag, posts } = Astro.props;
+
+const seo = {
+	title: `${tag.name} | ${site.blogName}`,
+	description: `Writing by ${site.name} tagged ${tag.name}.`,
+	noindex: true,
+};
 ---
 
-<Layout seo={seo}>
-  <Container narrow>
-    <section class="tag-page__section"> 
-      <h1>Posts Tagged with "{tag}"</h1>
-      <ul>
-        {posts.map(post => (
-          <li><a href={post.url}>{post.frontmatter.title}</a></li>
-        ))}
-      </ul>
-    </section>
-  </Container>
-</Layout>
-
-<style>
-.tag-page__section {
-  min-height: 60vh;
-  margin: var(--section-margin);
-}
-</style>
+<Base seo={seo}>
+	<Section id="intro" num="01" title={`${tag.name}.`} as="h1">
+		<div class="stack-lg">
+			<p class="lede">
+				{tag.count}
+				{tag.count === 1 ? 'note' : 'notes'} from {site.blogName} tagged {tag.name}.
+			</p>
+			<PostList posts={posts} descriptions />
+			<div class="actions">
+				<a class="link" href="/writing/tags/">All topics<Icon name="right" /></a>
+				<a class="link" href="/writing/">All writing<Icon name="right" /></a>
+			</div>
+		</div>
+	</Section>
+</Base>

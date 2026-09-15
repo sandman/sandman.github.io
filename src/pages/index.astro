@@ -1,31 +1,68 @@
 ---
-import { Container, FeatureCard } from '@components/odyssey-theme';
+import Base from '../layouts/Base.astro';
+import Section from '../components/Section.astro';
+import RecordRow from '../components/RecordRow.astro';
+import PostList from '../components/PostList.astro';
+import EnquiryForm from '../components/EnquiryForm.astro';
+import Icon from '../components/Icon.astro';
+import { site, now, doors, homeSections as s } from '../data/site';
+import { getPosts } from '../lib/posts';
+import { webPageNode } from '../lib/schema';
 
-import Layout from '../layouts/Page.astro';
-import HomeHeroSection from '../components/sections/heros/HomeHeroSection.astro';
-import PersonSchema from '../components/schema/PersonSchema.astro';
-import WebSiteSchema from '../components/schema/WebSiteSchema.astro';
+const posts = (await getPosts()).slice(0, 4);
+
+const seo = {
+	description: site.description,
+	schema: [webPageNode({ path: '/', name: site.title, description: site.description })],
+};
 ---
 
-<Layout>
-	<PersonSchema />
-	<WebSiteSchema />
-	<HomeHeroSection />
+<Base seo={seo}>
+	<Section {...s.intro} as="h1">
+		<div class="opener">
+			<p class="lede">{site.lede}</p>
+			<p class="status">
+				<span class="status__label"><span class="led led--live" aria-hidden="true"></span>{now.label}</span>
+				<span>{now.text}</span>
+			</p>
+			<div class="actions">
+				<a class="btn" href="#contact">Start an enquiry<Icon name="down" /></a>
+				<a class="link" href="/projects/">See the projects<Icon name="right" /></a>
+				<a class="link" href="/services/">How I work with teams<Icon name="right" /></a>
+			</div>
+		</div>
+	</Section>
 
-</Layout>
+	<Section {...s.work}>
+		<div class="stack-lg">
+			<div class="copy">
+				<p>
+					I partner with founders and leadership teams to close the gap between strategy and execution. Depending on the
+					situation, I fix an immediate problem or work alongside your team to build lasting capability.
+				</p>
+				<p>I'm not a coach. I roll up my sleeves and get things done.</p>
+			</div>
+			<ul class="rows">
+				{doors.map((item) => <RecordRow item={item} />)}
+			</ul>
+		</div>
+	</Section>
 
-<style>
-	.feature-card__section {
-		margin: var(--section-margin) auto;
-	}
-	.feature-card__grid {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		gap: var(--theme-grid-gap);
-	}
-	@media (max-width: 768px) {
-		.feature-card__grid {
-			grid-template-columns: 1fr;
-		}
-	}
-</style>
+	<Section {...s.writing}>
+		<div class="stack-lg">
+			<p class="copy">{site.blogDescription}</p>
+			<PostList posts={posts} />
+			<div class="actions">
+				<a class="link" href="/writing/">All writing<Icon name="right" /></a>
+				<a class="link" href="/writing/rss.xml">RSS feed<Icon name="up-right" /></a>
+			</div>
+		</div>
+	</Section>
+
+	<Section {...s.contact}>
+		<div class="stack-lg">
+			<p class="copy">Tell me what you're building and where you could use help. A couple of paragraphs is enough.</p>
+			<EnquiryForm idPrefix="home" />
+		</div>
+	</Section>
+</Base>

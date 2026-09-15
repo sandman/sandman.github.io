@@ -1,53 +1,72 @@
 ---
-import { getCollection } from 'astro:content';
-import {
-	Container,
-	TextCardSection,
-	BlogPostsList,
-} from '@components/odyssey-theme';
-import Layout from '../../layouts/Page.astro';
-import BreadcrumbSchema from '../../components/schema/BreadcrumbSchema.astro';
+import Base from '../../layouts/Base.astro';
+import Section from '../../components/Section.astro';
+import PostList from '../../components/PostList.astro';
+import Icon from '../../components/Icon.astro';
+import { site } from '../../data/site';
+import { collectTags, getPosts, groupByYear, isAged } from '../../lib/posts';
+import { blogNode, breadcrumbNode, webPageNode } from '../../lib/schema';
 
-const blogPosts = await getCollection('blog', ({ data }) => {
-	return !data.draft;
-});
+const posts = await getPosts();
+const years = groupByYear(posts);
+const tags = collectTags(posts);
+const pad = (value: number) => String(value).padStart(2, '0');
 
-const posts = blogPosts
-	.map((post) => ({
-		title: post.data.title,
-		description: post.data.description,
-		publishDate: post.data.publishDate,
-		featuredImage: post.data.featuredImage,
-		excerpt: post.data.excerpt,
-		href: `/writing/posts/${post.slug}`,
-		tags: post.data.tags,
-	}))
-	.sort((a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime());
+const description = `${site.blogName}: writing by ${site.name} on startups, technology, product development and building AI systems.`;
 
 const seo = {
-	title: 'Tech Leadership Blog | Sandip Gangakhedkar',
-	description: 'Insights on startup technology, product development, team building, and fractional leadership from Sandip Gangakhedkar. Notes from two decades in tech.',
+	title: site.blogName,
+	description,
+	schema: [
+		webPageNode({ path: '/writing/', name: site.blogName, description, type: 'CollectionPage' }),
+		blogNode(posts),
+		breadcrumbNode([{ name: 'Writing', path: '/writing/' }]),
+	],
 };
 ---
 
-<Layout {seo}>
-	<BreadcrumbSchema items={[{ name: "Blog", url: "/writing" }]} />
-	<Container>
-		<TextCardSection>
-			<h1>Notes from the trenches</h1>
-			<p>
-				Thoughts and insights on startups, technology, product development, and the journey of building things that matter.
-			</p>
-		</TextCardSection>
-		<section class="blog-posts-list__section">
-			<h2>Recent Posts</h2>
-			<BlogPostsList posts={posts} />
-		</section>
-	</Container>
-</Layout>
+<Base seo={seo}>
+	<Section id="intro" num="01" title={`${site.blogName}.`} as="h1">
+		<div class="opener">
+			<p class="lede">{site.blogDescription}</p>
+			<div class="actions">
+				<a class="link" href="#topics">Browse by topic<Icon name="down" /></a>
+				<a class="link" href="/writing/rss.xml">RSS feed<Icon name="up-right" /></a>
+			</div>
+		</div>
+	</Section>
 
-<style>
-	.blog-posts-list__section {
-		margin: var(--section-margin) auto;
+	{
+		years.map((group, index) => {
+			const aged = group.posts.every((post) => isAged(post.data.publishDate));
+			return (
+				<Section id={`y${group.year}`} num={pad(index + 2)} title={`${group.year}.`}>
+					<div class="stack">
+						{aged && (
+							<p class="aged">
+								<span class="hatch" aria-hidden="true" />
+								<span>Written in {group.year}. Some details may have aged since.</span>
+							</p>
+						)}
+						<PostList posts={group.posts} descriptions />
+					</div>
+				</Section>
+			);
+		})
 	}
-</style>
+
+	<Section id="topics" num={pad(years.length + 2)} title="Topics.">
+		<ul class="tags">
+			{
+				tags.map((tag) => (
+					<li>
+						<a class="tag" href={`/writing/tags/${tag.slug}/`}>
+							{tag.name}
+							<span class="tag__count">{tag.count}</span>
+						</a>
+					</li>
+				))
+			}
+		</ul>
+	</Section>
+</Base>
