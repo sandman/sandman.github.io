@@ -28,7 +28,6 @@ export const site = {
 };
 
 export const nav = [
-	{ label: 'Services', href: '/services/' },
 	{ label: 'Projects', href: '/projects/' },
 	{ label: 'Writing', href: '/writing/' },
 	{ label: 'About', href: '/about/' },
@@ -148,7 +147,6 @@ const fractional: RecordItem = {
 	title: 'Fractional CTO and CPO',
 	kind: 'AI and analytics startups and SMEs, UK and US',
 	body: 'Technology and product leadership for teams building AI-native products: agentic AI workflows, AI solution architecture and evals.',
-	link: { href: '/services/', label: 'How I work with teams' },
 };
 
 const meshh: RecordItem = {
@@ -208,21 +206,18 @@ export const doors: RecordItem[] = [
 		title: 'Founders and scale-ups',
 		kind: 'Fractional CTO and CPO',
 		body: 'Senior technology and product leadership that stays hands-on: architecture, roadmap, team scaling, and technical due diligence when you raise.',
-		link: { href: '/services/#founders', label: 'How I work with founders' },
 	},
 	{
 		id: 'door-ai',
 		title: 'Companies adopting AI',
 		kind: 'AI systems, designed and shipped',
 		body: 'Agentic workflows, solution architecture and evals, taken from prototype to a system your team can run.',
-		link: { href: '/services/#ai', label: 'How I build AI systems' },
 	},
 	{
 		id: 'door-speaking',
 		title: 'Speaking and press',
 		kind: 'Talks, panels, podcasts, interviews',
 		body: 'AI systems in production, humans in the loop, and building deep tech, from first-hand experience.',
-		link: { href: '/services/#speaking', label: 'Speaking topics' },
 	},
 ];
 
