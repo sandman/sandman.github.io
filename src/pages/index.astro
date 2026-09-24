@@ -1,11 +1,10 @@
 ---
 import Base from '../layouts/Base.astro';
 import Section from '../components/Section.astro';
-import RecordRow from '../components/RecordRow.astro';
 import PostList from '../components/PostList.astro';
 import EnquiryForm from '../components/EnquiryForm.astro';
 import Icon from '../components/Icon.astro';
-import { site, now, doors, homeSections as s } from '../data/site';
+import { site, now, homeSections as s } from '../data/site';
 import { getPosts } from '../lib/posts';
 import { webPageNode } from '../lib/schema';
 
@@ -36,14 +35,14 @@ const seo = {
 		<div class="stack-lg">
 			<div class="copy">
 				<p>
-					I partner with founders and leadership teams to close the gap between strategy and execution. Depending on the
-					situation, I fix an immediate problem or work alongside your team to build lasting capability.
+					I enjoy working with sharp, driven people on thorny problems at the intersection of technology and business. I like to work directly with founders & leadership teams on focused, high impact projects.
 				</p>
-				<p>I'm not a coach. I roll up my sleeves and get things done.</p>
 			</div>
+			{/* Ways to work together rows: hidden for now. To restore, uncomment and re-import RecordRow and doors.
 			<ul class="rows">
 				{doors.map((item) => <RecordRow item={item} />)}
 			</ul>
+			*/}
 		</div>
 	</Section>
 
