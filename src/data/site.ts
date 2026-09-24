@@ -13,7 +13,7 @@ export const site = {
 	description:
 		'Sandip Gangakhedkar is a technologist, AI systems builder and founder in London, designing and shipping production AI systems with founders and teams.',
 	headline: 'I build things.',
-	lede: "I'm Sandip Gangakhedkar, a technologist and founder in London, UK. I enjoy designing, building and shipping products that solve real problems.",
+	lede: "I'm Sandip, a technologist in London, UK. I enjoy designing, building and shipping products that solve real problems.",
 	jobTitle: 'Technologist, AI systems builder and founder',
 	locality: 'London',
 	country: 'GB',
