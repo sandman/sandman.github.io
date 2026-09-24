@@ -254,10 +254,6 @@ main {
 	text-decoration: none;
 }
 
-.mast__place {
-	color: var(--muted);
-}
-
 .nav ul {
 	display: flex;
 	flex-wrap: wrap;

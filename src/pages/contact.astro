@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import Section from '../components/Section.astro';
 import EnquiryForm from '../components/EnquiryForm.astro';
-import { site, socials } from '../data/site';
+import { socials } from '../data/site';
 import { breadcrumbNode, webPageNode } from '../lib/schema';
 
 const description =
@@ -31,10 +31,6 @@ const seo = {
 				<EnquiryForm idPrefix="contact" />
 			</div>
 			<dl class="aside">
-				<div class="aside__row">
-					<dt>Based in</dt>
-					<dd>{site.locality}, {site.countryName}.</dd>
-				</div>
 				<div class="aside__row">
 					<dt>Elsewhere</dt>
 					<dd>
